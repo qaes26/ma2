@@ -1,0 +1,3900 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الوحدة الثانية: نظريات القيادة | منصة التعلم الجامعي</title>
+  <style>
+    :root {
+      --primary: #1b365d;
+      --primary-light: #2b4c7e;
+      --primary-soft: #eef3fa;
+      --accent: #0f766e;
+      --accent-light: #e6f6f4;
+      --gold: #b45309;
+      --gold-bg: #fffbeb;
+      --gold-border: #f59e0b;
+      --indigo: #4338ca;
+      --indigo-bg: #eef2ff;
+      --indigo-border: #6366f1;
+      --emerald: #047857;
+      --emerald-bg: #ecfdf5;
+      --emerald-border: #10b981;
+      --rose: #be123c;
+      --rose-bg: #fff1f2;
+      --rose-border: #f43f5e;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --transition: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Cairo', 'Tajawal', Tahoma, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* Sticky Top Navbar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(27, 54, 93, 0.96);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #14b8a6, #38bdf8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.24);
+      transform: translateY(-1px);
+    }
+
+    .nav-btn.quiz-pill {
+      background: linear-gradient(135deg, #0d9488, #0f766e);
+      border-color: #2dd4bf;
+    }
+
+    .nav-btn.quiz-pill:hover {
+      background: linear-gradient(135deg, #0f766e, #115e59);
+    }
+
+    /* Reading Progress Bar */
+    .read-progress-track {
+      height: 4px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .read-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2dd4bf, #38bdf8);
+      transition: width 0.15s linear;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+    }
+
+    /* Hero & TOC Section */
+    .hero-card {
+      background: linear-gradient(135deg, #1b365d 0%, #244b7a 55%, #0f766e 100%);
+      color: #fff;
+      border-radius: 22px;
+      padding: 36px 32px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 12% 20%, rgba(255, 255, 255, 0.14), transparent 45%),
+                  radial-gradient(circle at 88% 85%, rgba(45, 212, 191, 0.2), transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .hero-card h1 {
+      font-size: clamp(1.85rem, 3.6vw, 2.65rem);
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.03rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 780px;
+      margin-bottom: 22px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .meta-chip {
+      background: rgba(15, 23, 42, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Interactive TOC */
+    .toc-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 34px;
+    }
+
+    .toc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--primary-soft);
+    }
+
+    .toc-header h2 {
+      font-size: 1.35rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toc-note {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 11px;
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.93rem;
+      transition: var(--transition);
+    }
+
+    .toc-link:hover {
+      background: var(--primary-soft);
+      border-color: var(--primary-light);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(27, 54, 93, 0.08);
+    }
+
+    .toc-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.84rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Visual Evolution Strip */
+    .diagram-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 34px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .diagram-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 10px;
+    }
+
+    .timeline-node {
+      background: linear-gradient(180deg, #f8fafc, #ffffff);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: var(--transition);
+    }
+
+    .timeline-node:nth-child(2) { border-top-color: #0284c7; }
+    .timeline-node:nth-child(3) { border-top-color: #0f766e; }
+    .timeline-node:nth-child(4) { border-top-color: #d97706; }
+    .timeline-node:nth-child(5) { border-top-color: #4f46e5; }
+    .timeline-node:nth-child(6) { border-top-color: #7c3aed; }
+    .timeline-node:nth-child(7) { border-top-color: #059669; }
+
+    .timeline-node:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-node strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .timeline-node span {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+      display: block;
+    }
+
+    /* Main Theory Sections */
+    .theory-section {
+      background: var(--card);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      padding: 32px;
+      margin-bottom: 34px;
+      scroll-margin-top: 84px;
+      animation: fadeInUp 0.4s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--primary-soft);
+    }
+
+    .section-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-badge-num {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(27, 54, 93, 0.22);
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+      color: var(--primary);
+      line-height: 1.35;
+    }
+
+    .section-en {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .page-tag {
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid #cbd5e1;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Subsections inside Theory */
+    .sub-anchor {
+      scroll-margin-top: 86px;
+      margin-top: 24px;
+      margin-bottom: 18px;
+    }
+
+    .sub-title {
+      font-size: 1.18rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-right: 12px;
+      border-right: 4px solid var(--accent);
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    /* Highlighted Definition & Postulate Cards */
+    .callout-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      transition: var(--transition);
+    }
+
+    .info-card:hover {
+      border-color: #94a3b8;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-card h4 {
+      color: var(--primary);
+      font-size: 1.02rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .info-card.gold {
+      background: var(--gold-bg);
+      border-color: #fde68a;
+      border-right: 4px solid var(--gold-border);
+    }
+
+    .info-card.rose {
+      background: var(--rose-bg);
+      border-color: #fecdd3;
+      border-right: 4px solid var(--rose-border);
+    }
+
+    .info-card.emerald {
+      background: var(--emerald-bg);
+      border-color: #a7f3d0;
+      border-right: 4px solid var(--emerald-border);
+    }
+
+    .info-card.indigo {
+      background: var(--indigo-bg);
+      border-color: #c7d2fe;
+      border-right: 4px solid var(--indigo-border);
+    }
+
+    .styled-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .styled-list li {
+      position: relative;
+      padding-right: 26px;
+    }
+
+    .styled-list li::before {
+      content: "◆";
+      position: absolute;
+      right: 4px;
+      top: 0;
+      color: var(--accent);
+      font-size: 0.78rem;
+    }
+
+    .styled-list.rose-dots li::before {
+      content: "✕";
+      color: var(--rose);
+      font-weight: 800;
+    }
+
+    .styled-list.num-list {
+      counter-reset: item;
+    }
+
+    .styled-list.num-list li {
+      padding-right: 34px;
+    }
+
+    .styled-list.num-list li::before {
+      counter-increment: item;
+      content: counter(item);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 3px;
+      right: 0;
+    }
+
+    /* Trait Detailed Cards */
+    .trait-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-right: 5px solid var(--primary);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    }
+
+    .trait-card.teal { border-right-color: var(--accent); }
+    .trait-card.amber { border-right-color: #d97706; }
+    .trait-card.indigo { border-right-color: var(--indigo); }
+    .trait-card.emerald { border-right-color: var(--emerald); }
+    .trait-card.purple { border-right-color: #7c3aed; }
+
+    .trait-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .trait-head h4 {
+      font-size: 1.08rem;
+      color: var(--primary);
+    }
+
+    .trait-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .trait-pill-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.92rem;
+    }
+
+    .trait-pill-box strong {
+      display: block;
+      font-size: 0.84rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .trait-pill-box.example-box {
+      background: var(--indigo-bg);
+      border-color: #c7d2fe;
+    }
+
+    .trait-pill-box.example-box strong {
+      color: var(--indigo);
+    }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: 14px;
+      border: 1px solid #cbd5e1;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 620px;
+      background: #fff;
+    }
+
+    thead th {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      padding: 14px 16px;
+      text-align: right;
+      font-weight: 700;
+      font-size: 0.96rem;
+      border-bottom: 2px solid #0f294a;
+    }
+
+    tbody td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      font-size: 0.95rem;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    tbody tr:hover {
+      background: #eef6ff;
+    }
+
+    td.row-label {
+      font-weight: 700;
+      color: var(--primary);
+      background: #f1f5f9;
+      width: 20%;
+    }
+
+    .footnote-box {
+      background: #f8fafc;
+      border: 1px dashed #94a3b8;
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* Tag for Added Examples */
+    .example-tag {
+      display: inline-block;
+      background: var(--indigo);
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 999px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* 5 Pedagogical Summary Blocks */
+    .pedagogy-wrapper {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 2px dashed #cbd5e1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .ped-box {
+      border-radius: 14px;
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+    }
+
+    .ped-box.full-span {
+      grid-column: 1 / -1;
+    }
+
+    .ped-box h3 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ped-summary {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+    }
+    .ped-summary h3 { color: #0369a1; }
+
+    .ped-memorize {
+      background: var(--gold-bg);
+      border-color: #fde68a;
+    }
+    .ped-memorize h3 { color: var(--gold); }
+
+    .ped-diff {
+      background: #f5f3ff;
+      border-color: #ddd6fe;
+    }
+    .ped-diff h3 { color: #6d28d9; }
+
+    .ped-example {
+      background: var(--indigo-bg);
+      border-color: #c7d2fe;
+    }
+    .ped-example h3 { color: var(--indigo); }
+
+    .ped-check {
+      background: var(--emerald-bg);
+      border-color: #a7f3d0;
+    }
+    .ped-check h3 { color: var(--emerald); }
+
+    /* Mini Self-Check Quiz inside each section */
+    .mini-q-text {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #064e3b;
+    }
+
+    .mini-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .mini-opt-btn {
+      text-align: right;
+      background: #fff;
+      border: 1px solid #a7f3d0;
+      border-radius: 10px;
+      padding: 10px 13px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--text);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .mini-opt-btn:hover:not(:disabled) {
+      background: #d1fae5;
+      border-color: #10b981;
+    }
+
+    .mini-opt-btn.correct {
+      background: #059669;
+      color: #fff;
+      border-color: #047857;
+      font-weight: 700;
+    }
+
+    .mini-opt-btn.wrong {
+      background: #e11d48;
+      color: #fff;
+      border-color: #be123c;
+    }
+
+    .mini-feedback {
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 9px 12px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .mini-feedback.show {
+      display: block;
+    }
+
+    .mini-feedback.ok {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .mini-feedback.err {
+      background: #ffe4e6;
+      color: #9f1239;
+    }
+
+    /* Section Navigation Footer */
+    .section-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .sec-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: var(--primary);
+    }
+
+    .sec-nav-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .sec-nav-btn.next {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .sec-nav-btn.next:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* CTA Banner before Final Quiz */
+    .quiz-cta-banner {
+      background: linear-gradient(135deg, #0f766e 0%, #1b365d 100%);
+      color: #fff;
+      border-radius: 22px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      margin: 40px 0 28px;
+    }
+
+    .quiz-cta-banner h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 10px;
+    }
+
+    .quiz-cta-banner p {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 680px;
+      margin: 0 auto 22px;
+    }
+
+    .start-quiz-btn {
+      background: #f59e0b;
+      color: #111827;
+      border: none;
+      padding: 16px 34px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 1.15rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(245, 158, 11, 0.35);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .start-quiz-btn:hover {
+      background: #fbbf24;
+      transform: translateY(-2px) scale(1.01);
+    }
+
+    /* Final Quiz Section */
+    .quiz-section {
+      display: none;
+      background: var(--card);
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      padding: 30px;
+      scroll-margin-top: 84px;
+    }
+
+    .quiz-section.active {
+      display: block;
+      animation: fadeInUp 0.35s ease;
+    }
+
+    .quiz-sticky-bar {
+      position: sticky;
+      top: 64px;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-progress-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .quiz-progress-track {
+      height: 12px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .quiz-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #0f766e, #2563eb);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .question-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 18px;
+      transition: var(--transition);
+    }
+
+    .question-card.answered-correct {
+      border-color: #10b981;
+      background: #f0fdf4;
+    }
+
+    .question-card.answered-wrong {
+      border-color: #f43f5e;
+      background: #fff5f6;
+    }
+
+    .q-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .q-num-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .q-type-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 999px;
+    }
+
+    .q-type-badge.mem {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .q-type-badge.app {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .q-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .options-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+
+    .opt-btn {
+      width: 100%;
+      text-align: right;
+      background: #fff;
+      border: 2px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-family: inherit;
+      font-size: 0.96rem;
+      color: var(--text);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .opt-btn:disabled {
+      cursor: default;
+    }
+
+    .opt-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .opt-btn.is-correct {
+      background: #dcfce7;
+      border-color: #16a34a;
+      color: #14532d;
+      font-weight: 700;
+    }
+
+    .opt-btn.is-correct .opt-letter {
+      background: #16a34a;
+      color: #fff;
+    }
+
+    .opt-btn.is-wrong {
+      background: #ffe4e6;
+      border-color: #e11d48;
+      color: #881337;
+      font-weight: 700;
+    }
+
+    .opt-btn.is-wrong .opt-letter {
+      background: #e11d48;
+      color: #fff;
+    }
+
+    .q-feedback {
+      margin-top: 12px;
+      padding: 12px 15px;
+      border-radius: 10px;
+      font-size: 0.93rem;
+      display: none;
+    }
+
+    .q-feedback.show {
+      display: block;
+    }
+
+    .q-feedback.ok {
+      background: #d1fae5;
+      color: #065f46;
+      border-right: 4px solid #059669;
+    }
+
+    .q-feedback.err {
+      background: #ffe4e6;
+      color: #9f1239;
+      border-right: 4px solid #e11d48;
+    }
+
+    /* Results Card */
+    .results-card {
+      display: none;
+      margin-top: 28px;
+      background: linear-gradient(135deg, #1b365d, #0f766e);
+      color: #fff;
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .results-card.show {
+      display: block;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .score-circle {
+      width: 138px;
+      height: 138px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.14);
+      border: 5px solid #2dd4bf;
+      margin: 0 auto 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-circle .big-score {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .score-circle .small-sub {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .stat-box .val {
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: block;
+    }
+
+    .stat-box .lbl {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .level-badge {
+      display: inline-block;
+      background: #fbbf24;
+      color: #111827;
+      padding: 8px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+    }
+
+    .restart-btn {
+      background: #fff;
+      color: var(--primary);
+      border: none;
+      padding: 13px 28px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .restart-btn:hover {
+      background: #e2e8f0;
+      transform: translateY(-2px);
+    }
+
+    /* Floating Back to TOC Button */
+    .fab-top {
+      position: fixed;
+      bottom: 22px;
+      left: 22px;
+      z-index: 900;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(27, 54, 93, 0.32);
+      transition: var(--transition);
+      display: none;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .fab-top.visible {
+      display: inline-flex;
+    }
+
+    .fab-top:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Inline SVG Diagram Box */
+    .svg-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .svg-box svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-card { padding: 26px 20px; }
+      .toc-card, .theory-section, .quiz-section { padding: 20px 16px; }
+      .pedagogy-wrapper { grid-template-columns: 1fr; }
+      .topbar-inner { padding: 10px 14px; }
+      .brand { font-size: 0.95rem; }
+      .nav-btn { font-size: 0.82rem; padding: 6px 11px; }
+    }
+
+    /* Per-Paragraph Inline Summary Box */
+    .para-summary {
+      margin-top: 14px;
+      background: linear-gradient(135deg, #f0fdfa 0%, #eff6ff 100%);
+      border: 1px solid #99f6e4;
+      border-right: 4px solid #0f766e;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 0.93rem;
+      color: #134e4a;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      box-shadow: 0 2px 6px rgba(15, 118, 110, 0.06);
+    }
+
+    .para-summary-badge {
+      background: #0f766e;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .para-summary p {
+      margin: 0;
+      color: #134e4a;
+      line-height: 1.7;
+    }
+
+    /* Section: الزبدة (Below Quiz Section) */
+    .zubda-section {
+      margin-top: 38px;
+      background: linear-gradient(180deg, #fffdf5 0%, #ffffff 100%);
+      border: 2px solid #f59e0b;
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      scroll-margin-top: 84px;
+    }
+
+    .zubda-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      border-bottom: 2px solid #fde68a;
+    }
+
+    .zubda-header h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: #92400e;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .zubda-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .zubda-card {
+      background: #ffffff;
+      border: 1px solid #fde68a;
+      border-top: 4px solid #d97706;
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 8px rgba(180, 83, 9, 0.06);
+      transition: var(--transition);
+    }
+
+    .zubda-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(180, 83, 9, 0.12);
+    }
+
+    .zubda-card h3 {
+      font-size: 1.04rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+
+    .zubda-card h3 span {
+      font-size: 0.76rem;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .zubda-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      font-size: 0.92rem;
+    }
+
+    .zubda-list li {
+      position: relative;
+      padding-right: 18px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .zubda-list li::before {
+      content: "▪";
+      position: absolute;
+      right: 2px;
+      top: 0;
+      color: #d97706;
+      font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+      .zubda-section { padding: 20px 16px; }
+      .para-summary { flex-direction: column; gap: 6px; }
+    }
+
+
+    /* =====================================================================
+       MOBILE-FIRST APP DESIGN (PHONE-OPTIMIZED UI & ERGONOMICS)
+    ===================================================================== */
+    body {
+      padding-bottom: 84px; /* Space for fixed bottom app tab bar */
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .container {
+      max-width: 680px;
+      padding: 16px 14px 36px;
+    }
+
+    /* Sleek Single-Line Mobile Topbar */
+    .topbar-inner {
+      max-width: 680px;
+      padding: 10px 14px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 0.94rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .topbar-actions {
+      display: none; /* Replaced by ergonomic bottom app navigation bar */
+    }
+
+    .topbar-mobile-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, #0d9488, #0f766e);
+      color: #fff;
+      border: 1px solid #2dd4bf;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .topbar-mobile-pill:active {
+      transform: scale(0.96);
+    }
+
+    /* Compact Phone Hero */
+    .hero-card {
+      border-radius: 18px;
+      padding: 22px 18px;
+      margin-bottom: 18px;
+    }
+
+    .hero-badge {
+      font-size: 0.78rem;
+      padding: 4px 11px;
+      margin-bottom: 10px;
+    }
+
+    .hero-card h1 {
+      font-size: 1.55rem;
+      line-height: 1.3;
+    }
+
+    .hero-subtitle {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .meta-chip {
+      font-size: 0.79rem;
+      padding: 7px 10px;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Single-Column Touch-Friendly TOC */
+    .toc-card, .diagram-card, .theory-section, .quiz-section, .zubda-section {
+      border-radius: 18px;
+      padding: 18px 15px;
+      margin-bottom: 18px;
+    }
+
+    .toc-grid {
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+
+    .toc-link {
+      min-height: 50px;
+      padding: 11px 13px;
+      font-size: 0.92rem;
+    }
+
+    .toc-link:active, .sec-nav-btn:active, .opt-btn:active, .mini-opt-btn:active, .start-quiz-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Horizontal Swipeable Timeline Strip on Phone */
+    .timeline-row {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 10px;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .timeline-node {
+      min-width: 145px;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+
+    /* Single-Column Cards & Pedagogy Blocks for Comfortable Phone Reading */
+    .callout-grid,
+    .trait-meta-grid,
+    .pedagogy-wrapper,
+    .zubda-grid,
+    .mini-options {
+      grid-template-columns: 1fr;
+      gap: 11px;
+    }
+
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+
+    .section-badge-num {
+      width: 40px;
+      height: 40px;
+      font-size: 1.1rem;
+      border-radius: 12px;
+    }
+
+    .section-header h2 {
+      font-size: 1.28rem;
+    }
+
+    .sub-title {
+      font-size: 1.07rem;
+    }
+
+    /* Mobile Card-Stack Tables (Zero Horizontal Scroll Needed!) */
+    .table-wrap {
+      border: none;
+      box-shadow: none;
+      overflow: visible;
+      margin: 14px 0;
+    }
+
+    table, thead, tbody, tr, td {
+      display: block;
+      width: 100%;
+      min-width: 0;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tbody tr {
+      background: #ffffff !important;
+      border: 1px solid #cbd5e1;
+      border-top: 4px solid var(--primary);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    }
+
+    tbody td {
+      border-bottom: 1px dashed #e2e8f0;
+      padding: 9px 0;
+      font-size: 0.92rem;
+      text-align: right !important;
+      width: 100% !important;
+      background: transparent !important;
+    }
+
+    tbody td:last-child {
+      border-bottom: none;
+      padding-bottom: 2px;
+    }
+
+    tbody td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+
+    tbody td.row-label {
+      font-size: 1rem;
+      color: var(--primary);
+    }
+
+    /* Touch-Sized Quiz & Navigation Buttons */
+    .opt-btn, .mini-opt-btn {
+      min-height: 50px;
+      padding: 12px 14px;
+      font-size: 0.93rem;
+    }
+
+    .sec-nav-btn {
+      flex: 1 1 45%;
+      justify-content: center;
+      min-height: 46px;
+      font-size: 0.86rem;
+      padding: 10px 12px;
+    }
+
+    .start-quiz-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 15px 20px;
+      font-size: 1.05rem;
+    }
+
+    .quiz-sticky-bar {
+      top: 56px;
+      padding: 11px 13px;
+      border-radius: 12px;
+    }
+
+    .quiz-progress-top {
+      font-size: 0.84rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Fixed Bottom App Tab Bar */
+    .mobile-bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #cbd5e1;
+      box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .bottom-nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 6px 4px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 0.76rem;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      min-height: 50px;
+    }
+
+    .bottom-nav-item .b-icon {
+      font-size: 1.18rem;
+      line-height: 1;
+    }
+
+    .bottom-nav-item:hover,
+    .bottom-nav-item.active {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .bottom-nav-item.quiz-tab {
+      color: var(--accent);
+    }
+
+    .bottom-nav-item.zubda-tab {
+      color: #b45309;
+    }
+
+    /* Lift Floating Back-to-TOC Button Above Bottom Nav */
+    .fab-top {
+      bottom: 74px;
+      left: 14px;
+      padding: 9px 14px;
+      font-size: 0.82rem;
+    }
+
+    .para-summary {
+      flex-direction: column;
+      gap: 6px;
+      padding: 12px 14px;
+    }
+
+    .quiz-cta-banner {
+      padding: 24px 18px;
+      border-radius: 18px;
+    }
+
+    .results-card {
+      padding: 24px 16px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#toc" class="brand">
+        <span class="brand-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </span>
+        <span>القيادة والمسؤولية المجتمعية – الوحدة الثانية</span>
+      </a>
+      <nav class="topbar-actions" aria-label="التنقل السريع">
+        <a href="#toc" class="nav-btn">الفهرس التفاعلي</a>
+        <a href="#sec-xy" class="nav-btn">جدول X و Y</a>
+        <a href="#sec-fiedler-table" class="nav-btn">جدول فيدلر</a>
+        <a href="#sec-zubda" class="nav-btn">⚡ الزبدة</a>
+        <button type="button" class="nav-btn quiz-pill" id="navQuizBtn">الاختبار النهائي (30 سؤالاً)</button>
+      </nav>
+      <button type="button" class="topbar-mobile-pill" id="mobileTopQuizBtn">📝 الاختبار (30)</button>
+    </div>
+    <div class="read-progress-track">
+      <div class="read-progress-fill" id="readProgress"></div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Title -->
+    <section class="hero-card" id="top">
+      <div class="hero-content">
+        <div class="hero-badge">📚 منصة الشرح الجامعي التفاعلي • مساق القيادة والمسؤولية المجتمعية</div>
+        <h1>الوحدة الثانية: نظريات القيادة</h1>
+        <p class="hero-subtitle">
+          شرح أكاديمي مبسّط ومنظّم لنظريات القيادة المقررة من كتاب <strong>«القيادة والمسؤولية المجتمعية»</strong> للأستاذ الدكتور أحمد سليمان العبيدات (الصفحات 52 – 77)، مع إعادة بناء الجداول الأصلية، وأمثلة تطبيقية مميّزة، واختبار تفاعلي شامل من 30 سؤالاً.
+        </p>
+        <div class="hero-meta">
+          <span class="meta-chip">📖 7 نظريات قيادية رئيسية</span>
+          <span class="meta-chip">🗂️ 14 محوراً في الفهرس التفاعلي</span>
+          <span class="meta-chip">📊 الجداول الأصلية (ص 67 و ص 74)</span>
+          <span class="meta-chip">✅ اختبار جامعي تفاعلي (30 سؤالاً)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Table of Contents (14 Required Items) -->
+    <section class="toc-card" id="toc" aria-labelledby="toc-heading">
+      <div class="toc-header">
+        <h2 id="toc-heading">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          الفهرس التفاعلي لموضوعات الوحدة الثانية
+        </h2>
+        <span class="toc-note">اضغط على أي موضوع للانتقال مباشرة إلى شرحه</span>
+      </div>
+      <div class="toc-grid">
+        <a class="toc-link" href="#sec-great-man"><span class="toc-num">1</span><span>نظرية الرجل العظيم (الرجل الشجاع) من المدرسة التقليدية</span></a>
+        <a class="toc-link" href="#sub-great-man-postulates"><span class="toc-num">2</span><span>مسلمات نظرية الرجل العظيم</span></a>
+        <a class="toc-link" href="#sub-great-man-criticisms"><span class="toc-num">3</span><span>المآخذ والانتقادات الموجهة للنظرية والتحديات التي واجهتها</span></a>
+        <a class="toc-link" href="#sec-traits"><span class="toc-num">4</span><span>نظرية السمات القيادية</span></a>
+        <a class="toc-link" href="#sub-born-not-made"><span class="toc-num">5</span><span>القادة يولدون ولا يُصنعون – صفحة 56</span></a>
+        <a class="toc-link" href="#sub-leader-traits"><span class="toc-num">6</span><span>السمات التي تميز القائد – الصفحات 58 و59 و60</span></a>
+        <a class="toc-link" href="#sub-traits-negatives"><span class="toc-num">7</span><span>سلبيات نظرية السمات – صفحة 61</span></a>
+        <a class="toc-link" href="#sec-behavioral"><span class="toc-num">8</span><span>النظرية السلوكية – صفحة 63</span></a>
+        <a class="toc-link" href="#sec-xy"><span class="toc-num">9</span><span>نظرية X و Y – جدول صفحة 67</span></a>
+        <a class="toc-link" href="#sec-situational"><span class="toc-num">10</span><span>النظرية الموقفية</span></a>
+        <a class="toc-link" href="#sub-fiedler-vars"><span class="toc-num">11</span><span>متغيرات فيدلر – صفحة 73</span></a>
+        <a class="toc-link" href="#sec-fiedler-table"><span class="toc-num">12</span><span>جدول نظرية فيدلر – صفحة 74</span></a>
+        <a class="toc-link" href="#sec-path-goal"><span class="toc-num">13</span><span>نظرية المسار والهدف ومسلماتها</span></a>
+        <a class="toc-link" href="#sec-interactive"><span class="toc-num">14</span><span>النظرية التفاعلية</span></a>
+      </div>
+    </section>
+
+    <!-- Conceptual Map of Leadership Theories -->
+    <section class="diagram-card" aria-label="خريطة تطور نظريات القيادة">
+      <div class="diagram-title">🧭 خريطة مسار الفكر القيادي في هذه الوحدة</div>
+      <div class="timeline-row">
+        <a href="#sec-great-man" class="timeline-node">
+          <strong>1. الرجل العظيم</strong>
+          <span>القيادة وراثة وفطرة (ص 52–56)</span>
+        </a>
+        <a href="#sec-traits" class="timeline-node">
+          <strong>2. السمات القيادية</strong>
+          <span>صفات ومهارات القائد (ص 56–61)</span>
+        </a>
+        <a href="#sec-behavioral" class="timeline-node">
+          <strong>3. النظرية السلوكية</strong>
+          <span>ماذا يفعل القائد وكيف؟ (ص 63–64)</span>
+        </a>
+        <a href="#sec-xy" class="timeline-node">
+          <strong>4. نظرية X و Y</strong>
+          <span>افتراضات المدير تجاه العاملين (ص 64–68)</span>
+        </a>
+        <a href="#sec-situational" class="timeline-node">
+          <strong>5. النظرية الموقفية</strong>
+          <span>تطابق الأسلوب مع الموقف (ص 71–75)</span>
+        </a>
+        <a href="#sec-path-goal" class="timeline-node">
+          <strong>6. المسار والهدف</strong>
+          <span>توضيح الطريق وتحفيز الإنجاز (ص 75–77)</span>
+        </a>
+        <a href="#sec-interactive" class="timeline-node">
+          <strong>7. النظرية التفاعلية</strong>
+          <span>تفاعل القائد والجماعة والموقف (ص 61–63، 70–71)</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 1: GREAT MAN THEORY -->
+    <!-- ===================================================================== -->
+    <article class="theory-section" id="sec-great-man">
+      <div class="section-header">
+        <div class="section-title-group">
+          <div class="section-badge-num">1</div>
+          <div>
+            <h2>نظرية الرجل العظيم (الرجل الشجاع)</h2>
+            <span class="section-en">The Great Man Theory • المدرسة التقليدية (الكلاسيكية)</span>
+          </div>
+        </div>
+        <span class="page-tag">📖 صفحات الكتاب: 52 – 56</span>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">مفهوم النظرية، نشأتها، وانتماؤها إلى المدرسة التقليدية</h3>
+        <p>
+          تُعد <strong>نظرية الرجل العظيم</strong> أولى النظريات التي تنبثق من <strong>المدرسة التقليدية (الكلاسيكية)</strong> في القيادة (ص 52)، وأقدم محاولة لتفسير ظاهرة القيادة الإدارية وتحديد ما إذا كانت علماً أم فناً؛ ولذلك أطلق عليها بعض الباحثين لقب <strong>«الأب الشرعي للقيادة»</strong> لأنها فتحت المجال لاحقاً لبناء نظريات قائمة على أسس علمية، رغم أنها نفسها لم تُبنَ على أسس علمية (ص 53).
+        </p>
+        <p>
+          <strong>فكرتها الرئيسية:</strong> تنطلق النظرية من فرضية واضحة ومباشرة مفادها أن <strong>«القائد يُولد ولا يُصنع»</strong>؛ أي إن الشخص العظيم يولد وهو مزوّد بصفات فطرية ومواهب وقدرات غير عادية وثابتة تميّزه عن بقية أفراد الجماعة، ولا تتأثر هذه الصفات بالزمن أو بصفات الجماعة أو بطبيعة الموقف أو الأهداف المطلوب تحقيقها. بل تفترض النظرية أن هذه الولادة القيادية تقتصر على <strong>الأعضاء الأرستقراطيين فقط</strong>، وأن السمات القيادية تنتقل بشكل تنازلي من شخص إلى آخر عبر <strong>نظام الوراثة</strong> (ص 52–53).
+        </p>
+
+        <div class="callout-grid">
+          <div class="info-card">
+            <h4>🏛️ الجذور التاريخية والنشأة (ص 52–54)</h4>
+            <ul class="styled-list">
+              <li>استندت إلى الفكر القديم في الحضارات <strong>الإغريقية والفرعونية والفينيقية</strong> التي قسّمت البشر إلى طبقات وفئات، منها طبقة القادة والعظماء.</li>
+              <li>قبلت معظم المجتمعات القديمة قادتها على أساس <strong>البراعة والشجاعة</strong>، فكان يُختار الرجل الأقوى حاكماً أو زعيماً، ومهمته الأساسية كسب معارك جماعته وحروبها (لذلك تُعرف أيضاً بفكرة الرجل الشجاع).</li>
+              <li>ساد الاعتقاد بأنه من خلال <strong>بقاء الأصلح وبالتزاوج</strong> يظهر القادة المتميزون الذين يصلون إلى مركز القوة.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h4>👤 أبرز روّاد النظرية في الكتاب (ص 53–54)</h4>
+            <ul class="styled-list">
+              <li><strong>جالتون (Galton):</strong> من أوائل من دعوا إليها؛ ورأى أن بعض الأفراد لديهم صفات عظيمة وعبقرية خارقة وراثية تمكّنهم من قيادة أي جماعة وفي أي موقف (وضرب الكتاب أمثلة مثل: هرقل، وقادة سياسيين مثل عبد الكريم قاسم وغيرهم).</li>
+              <li><strong>الفيلسوف توماس كارليل (Thomas Carlyle):</strong> قدّم النظرية في <strong>القرن التاسع عشر</strong>، مؤكداً أنه لا يمكن للفرد أن يكون قائداً دون سمات خاصة تميّزه عن غيره وتجعله قادراً على التحكم في مجرى التغيير ومجرى التاريخ.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>نظرية الرجل العظيم أولى نظريات المدرسة التقليدية (الأب الشرعي للقيادة)، وتقوم على أن القائد يُولد بصفات وراثية ثابتة (غالباً أرستقراطية) تجعله قادراً على قيادة أي جماعة، ومن أبرز روّادها جالتون وتوماس كارليل.</p></div>
+      </div>
+
+      <!-- Postulates -->
+      <div class="sub-anchor" id="sub-great-man-postulates">
+        <h3 class="sub-title">مسلمات نظرية الرجل العظيم (صفحة 55)</h3>
+        <p>يبني أصحاب نظرية الرجل العظيم رأيهم على أربع مسلمات أساسية يجب حفظها بدقة:</p>
+        <div class="info-card gold">
+          <h4>📌 المسلمات الأربع للنظرية (ص 55)</h4>
+          <ol class="styled-list num-list">
+            <li><strong>القادة يُولدون ولا يُصنعون.</strong></li>
+            <li><strong>القادة يُولدون ومعهم موهبة القيادة.</strong></li>
+            <li><strong>القادة العظماء سينهضون عندما تظهر الحاجة لهم.</strong></li>
+            <li><strong>القادة الجيدون هم الذين يمتلكون السمات الصحيحة.</strong></li>
+          </ol>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>ترتكز النظرية على 4 مسلمات ثابتة: القادة يُولدون ولا يُصنعون، يولدون بموهبة القيادة، ينهضون وقت الحاجة، ويمتلكون السمات الصحيحة.</p></div>
+      </div>
+
+      <!-- Criticisms & Challenges -->
+      <div class="sub-anchor" id="sub-great-man-criticisms">
+        <h3 class="sub-title">المآخذ والانتقادات الموجهة للنظرية والتحديات التي واجهتها (صفحتا 55 و56)</h3>
+        <p>رغم سيادة هذه النظرية لسنوات طويلة (لكونها النظرية الوحيدة آنذاك حتى ظهرت نظرية السمات وأسقطتها)، فإنها واجهت مآخذ علمية وهجوماً حاداً من جهات متعددة:</p>
+        <div class="callout-grid">
+          <div class="info-card rose">
+            <h4>⚠️ المآخذ والانتقادات العلمية (ص 55)</h4>
+            <ul class="styled-list rose-dots">
+              <li><strong>تدرس القادة بعد أن أصبحوا عظماء:</strong> أي إنها تصف الماضي ولا تصنع المستقبل.</li>
+              <li><strong>عاجزة عن التنبؤ:</strong> لا تقدم منهجاً علمياً نتنبأ به بأي الأفراد العاديين قد يصبح قائداً عظيماً.</li>
+              <li><strong>التصادم مع الواقع:</strong> قد نجد قائداً عظيماً يقف عاجزاً في بعض الظروف عن تحقيق أي تقدم أو حل مشكلة تعترض منظمته أو جماعته.</li>
+              <li><strong>عدم الاعتماد على المعطيات العلمية:</strong> القائد في هذه النظرية لا يعتمد على الأسس والمعطيات العلمية في معالجة المواقف.</li>
+              <li><strong>القصور عن تفسير الجوانب المكتسبة والموقفية:</strong> أغفلت السمات المكتسبة من المجتمع، وخصائص المرؤوسين وحاجاتهم، وطبيعة الظروف والمواقف، ودور التعلم في صناعة القادة.</li>
+            </ul>
+          </div>
+          <div class="info-card rose">
+            <h4>🔥 التحديات والهجوم الذي واجهته النظرية (ص 56)</h4>
+            <ul class="styled-list rose-dots">
+              <li><strong>1. العنصرية:</strong> تمادى البعض في استغلال النظرية لتبرير القهر والاضطهاد الذي مارسه «الرجل العظيم» على تابعيه، كما قامت على عبادة الذات وانتقاء الموضوعية والاستئثار بالسلطة، وجرّ بعض «العظماء» جماعاتهم إلى الهلاك.</li>
+              <li><strong>2. تجاهل قيمة التدريب:</strong> أهملت إمكانية تدريب القائد وتأهيله وإكسابه المهارات والقدرات، واقتصرت على الصفات الموروثة فقط رغم أنها غير كافية وحدها للقيادة الفعالة.</li>
+              <li><strong>3. تجاهل العوامل البيئية:</strong> أغفلت ظروف المجتمع وطبيعة التنظيم؛ فقد نجح قادة مع جماعاتهم وعجزوا عن القيادة مع جماعات أخرى، مما يثبت أن البيئة عامل حاسم.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="footnote-box">💡 <strong>ملاحظة مهمة من الكتاب (ص 55):</strong> الميزة الوحيدة لنظرية الرجل العظيم كانت في إعادتها للتفكير في بناء نظريات قيادية تتسم بالعملية، يتسم فيها القائد بخصائص شخصية تمكنه من القيام بأعباء إدارية.</p>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>سقطت النظرية علمياً لأنها تدرس القادة بعد عظمتهم ولا تتنبأ بهم وتفتقر للمنهج العلمي، كما واجهت 3 تحديات رئيسية في ص 56: العنصرية، تجاهل قيمة التدريب، وتجاهل العوامل البيئية.</p></div>
+      </div>
+
+      <!-- 5 Pedagogical Blocks -->
+      <div class="pedagogy-wrapper">
+        <div class="ped-box ped-summary">
+          <h3>📝 الخلاصة</h3>
+          <p>ترى نظرية الرجل العظيم (التقليدية) أن القيادة هبة وراثية فطرية محصورة في قلة متميزة تظهر وقت الحاجة وتغير التاريخ. ورغم أنها فتحت الباب لدراسة القيادة، فإنها سقطت علمياً لإهمالها التدريب والبيئة وخصائص المرؤوسين وعجزها عن التنبؤ.</p>
+        </div>
+        <div class="ped-box ped-memorize">
+          <h3>🎯 للحفظ</h3>
+          <ul class="styled-list">
+            <li>تنتمي إلى <strong>المدرسة التقليدية (الكلاسيكية)</strong> وسُمّيت <strong>الأب الشرعي للقيادة</strong>.</li>
+            <li>روّادها: <strong>جالتون</strong> و<strong>توماس كارليل</strong> (القرن 19).</li>
+            <li>مسلماتها (4): يُولدون لا يُصنعون، معهم موهبة القيادة، ينهضون وقت الحاجة، يمتلكون السمات الصحيحة.</li>
+            <li>التحديات الثلاثة (ص 56): <strong>العنصرية – تجاهل قيمة التدريب – تجاهل العوامل البيئية</strong>.</li>
+          </ul>
+        </div>
+        <div class="ped-box ped-diff">
+          <h3>⚖️ افهم الفرق</h3>
+          <p><strong>الرجل العظيم مقابل النظريات الحديثة:</strong> في «الرجل العظيم» القائد ثابت وكفؤ في <em>كل</em> المواقف بسبب الوراثة والأصل الأرستقراطي، أما النظريات اللاحقة فتؤكد أن القيادة يمكن تعلمها وتطويرها بالتدريب، وأن نجاح القائد يتغير بتغير الموقف والجماعة.</p>
+        </div>
+        <div class="ped-box ped-example">
+          <h3>💼 مثال تطبيقي <span class="example-tag">مثال توضيحي مضاف للشرح</span></h3>
+          <p>تخيّل شركة عائلية ترفض تدريب موظفيها الأكفاء لتولّي الإدارة، وتصرّ على تعيين الابن الأكبر للمؤسس مديراً عاماً لمجرد اعتقادها أنه «ورث جينات القيادة من والده» وسيقود الشركة بنجاح في أي أزمة. هذا التفكير يجسّد منطق نظرية الرجل العظيم وتجاهلها لقيمة التدريب والعوامل البيئية.</p>
+        </div>
+        <div class="ped-box ped-check full-span" data-mini-quiz>
+          <h3>❓ اختبر نفسك</h3>
+          <p class="mini-q-text">أيٌّ مما يلي يُعد من التحديات الثلاثة التي واجهت نظرية الرجل العظيم في صفحة 56؟</p>
+          <div class="mini-options">
+            <button type="button" class="mini-opt-btn" data-correct="false">المبالغة في الاعتماد على التدريب المستمر</button>
+            <button type="button" class="mini-opt-btn" data-correct="true">العنصرية، تجاهل قيمة التدريب، وتجاهل العوامل البيئية</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">التركيز المفرط على دور المرؤوسين</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">كثرة المقاييس الإحصائية للشخصية</button>
+          </div>
+          <div class="mini-feedback" data-ok="إجابة صحيحة! هذه هي الانتقادات والتحديات الثلاثة المصنفة في صفحة 56 من الكتاب." data-err="غير صحيح. الإجابة الصحيحة هي: العنصرية، تجاهل قيمة التدريب، وتجاهل العوامل البيئية (صفحة 56)."></div>
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <a href="#toc" class="sec-nav-btn">⬆ العودة إلى الفهرس</a>
+        <a href="#sec-traits" class="sec-nav-btn next">القسم التالي: نظرية السمات القيادية ⬅</a>
+      </div>
+    </article>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 2: TRAITS THEORY -->
+    <!-- ===================================================================== -->
+    <article class="theory-section" id="sec-traits">
+      <div class="section-header">
+        <div class="section-title-group">
+          <div class="section-badge-num">2</div>
+          <div>
+            <h2>نظرية السمات القيادية</h2>
+            <span class="section-en">The Traits' Theory of Leadership</span>
+          </div>
+        </div>
+        <span class="page-tag">📖 صفحات الكتاب: 56 – 61</span>
+      </div>
+
+      <!-- Sub: Born not made p. 56 -->
+      <div class="sub-anchor" id="sub-born-not-made">
+        <h3 class="sub-title">هل القادة يولدون أم يُصنعون؟ (صفحة 56 – 57)</h3>
+        <p>
+          ترتبط <strong>نظرية السمات</strong> ارتباطاً وثيقاً بنظرية الرجل العظيم؛ إذ يرى أنصارها في بدايتها أن <strong>القائد يُولد بالفطرة ولا يُصنع</strong>، فالقادة وُلدوا وهم يحملون عدداً من الخصائص الموروثة أو السمات الشخصية التي تجعلهم قادة ناجحين (ص 56). وتستند في جذورها الفلسفية إلى النهج المثالي عند <strong>أفلاطون</strong> القائل: <em>«يتميز الذهب عن بقية المعادن»</em>، أي إن القادة يظهرون من بين الطبقة المتميزة، وأهم سماتهم في نظر أفلاطون <strong>الذكاء والمعرفة</strong> (فالمعرفة فضيلة والجهل رذيلة) (ص 56–57).
+        </p>
+        <p>
+          لكن مع تطور النظرية، أصبحت تمثّل <strong>تطوراً طبيعياً لمفهوم نظرية الوراثة مع توسيع نطاقها</strong>؛ فهي ترتكز على ضرورة توفر صفات ومهارات خاصة في الفرد تجعله مؤهلاً للقيادة، وهذه الصفات <strong>يمكن أن تكون موروثة أو مكتسبة من وجوده في المجتمع</strong> (ص 57–58)، وبذلك كشفت عن سمات للقيادة يمكن اكتسابها وتعلّمها.
+        </p>
+        <div class="info-card">
+          <h4>🔍 تناقضات الواقع التي كشفتها الدراسة (ص 57)</h4>
+          <p style="margin-bottom:0;">
+            أشار الكتاب إلى أن السمات الإيجابية المذكورة نظرياً تتناقض أحياناً مع الواقع التاريخي: فقد عرف العالم قادة ضخام الجثة وصلاب العود مثل <strong>جنكيز خان</strong>، مقابل قادة رقيقي العظام مثل <strong>غاندي</strong> ومحدودي الحجم مثل <strong>فخر الدين العتبي</strong> و<strong>نابليون</strong>؛ وقادة تميزوا بالدهاء مقابل البساطة والتواضع؛ وقادة مارسوا السيطرة والقسوة مثل <strong>الحجاج بن يوسف الثقفي</strong> مقابل قادة التزموا الزهد والتقشف.
+          </p>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>بدأت نظرية السمات امتداداً للوراثة وفلسفة أفلاطون (الذكاء والمعرفة)، لكنها توسّعت لتشمل صفات موروثة ومكتسبة، رغم كشف الواقع لتناقضات واضحة في صفات القادة التاريخيين.</p></div>
+      </div>
+
+      <!-- Sub: Traits & Skills pp. 58-60 -->
+      <div class="sub-anchor" id="sub-leader-traits">
+        <h3 class="sub-title">المهارات المكتسبة والسمات التي تميز القائد (الصفحات 58 و59 و60)</h3>
+        <p>
+          قسّم الكتاب الخصائص والقدرات التي تميز القائد في الصفحات 58–60 إلى مجموعتين متكاملتين: <strong>(أ) المهارات المكتسبة التي ترتبط وتؤثر على القائد وأدائه (ص 58–59)</strong>، و<strong>(ب) السمات الست التي نتجت عن الدراسات وتميز القائد (ص 59–60)</strong>.
+        </p>
+
+        <!-- Part A: Acquired Skills (pp. 58-59) -->
+        <div class="info-card indigo" style="margin-bottom: 18px;">
+          <h4>🛠️ أولاً (أ): المهارات المكتسبة اللازمة للقائد وأدائه (صفحتا 58 و59)</h4>
+          <p>بما أنه يصعب توافر كل السمات الشخصية بشكل متكامل في شخص واحد، يفترض الكتاب إلمام القادة بثلاث مهارات مكتسبة رئيسية:</p>
+          <ul class="styled-list">
+            <li><strong>1. المهارة الفنية (ص 58):</strong> معرفة القائد المتخصصة في فرع من فروع العلم، والقدرة على الأداء الجيد في حدود التخصص، وعلمه بطبيعة المنظمة، وقدرته على استخدام الأدوات والأجهزة المتاحة في تخصصه (تتعامل مع الأشياء).</li>
+            <li><strong>2. المهارة الإنسانية (ص 58):</strong> قدرة القائد على التعامل مع الأفراد والجماعات (بعكس الفنية)، وإدراك ميول واتجاهات مرؤوسيه وفهم مشاعرهم والثقة فيهم وتقبل اقتراحاتهم وإفساح المجال للابتكار وخلق الإحساس بالاطمئنان والاستقرار وإشباع حاجاتهم.</li>
+            <li><strong>3. المهارة الذهنية (ص 58–59)</strong> وينبثق منها نوعان:
+              <br>• <strong>المهارة الإدارية (ص 58):</strong> قدرة القائد على فهم عمله، وتوزيع العمل داخل التنظيم توزيعاً عادلاً، ووضع معدلات ومقاييس للأداء، والتنسيق بين النشاطات والوحدات، وإعداد وتطوير الكفاءات البشرية، وتبسيط الأسباب والإجراءات.
+              <br>• <strong>المهارة السياسية (ص 59):</strong> قدرة القائد على تبصّر الصالح العام والأهداف العامة للدولة، والارتباط بالنظام العام، والربط بين أهداف المنظمة وسياساتها وأهداف الدولة والمجتمع، والتوفيق بين الاتجاهات والضغوط المختلفة بالمجتمع وعمل المنظمة.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Part B: The 6 Trait Categories (pp. 59-60) -->
+        <p><strong>ثانياً (ب): السمات الست التي تميز القائد وفق تصنيف الكتاب (صفحتا 59 و60):</strong></p>
+
+        <!-- 1. Physical Traits -->
+        <div class="trait-card">
+          <div class="trait-head">
+            <h4>1. السمات الجسمية</h4>
+            <span class="page-tag">ص 59</span>
+          </div>
+          <div class="trait-meta-grid">
+            <div class="trait-pill-box">
+              <strong>معناها وفق الكتاب:</strong>
+              يميل القائد إلى أن يكون أطول من الأتباع وأثقل وزناً منهم (خصوصاً حين يُشترط أن يكون القائد أقوى من الجماعة أو كان هدف الجماعة القتال)، كما يميل القادة إلى أن يكونوا أكثر حيوية وأوفر نشاطاً من الأتباع.
+            </div>
+            <div class="trait-pill-box">
+              <strong>أهميتها للقائد:</strong>
+              تمنح القائد طاقة جسدية وحضوراً ميدانياً يعينانه على تحمّل أعباء العمل الطويل وبث الحماس والنشاط في فريقه.
+            </div>
+            <div class="trait-pill-box example-box">
+              <strong>مثال عملي <span class="example-tag">توضيحي</span></strong>
+              قائد فريق إنقاذ ميداني يتمتع بلياقة بدنية وحيوية عالية تمكّنه من الاستمرار في توجيه الفريق لساعات طويلة في ظروف صعبة دون تراجع.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Mental & Cognitive Traits -->
+        <div class="trait-card teal">
+          <div class="trait-head">
+            <h4>2. السمات العقلية المعرفية</h4>
+            <span class="page-tag">ص 59</span>
+          </div>
+          <div class="trait-meta-grid">
+            <div class="trait-pill-box">
+              <strong>معناها وفق الكتاب:</strong>
+              تفوّق القادة في الذكاء العام مقارنة بالأتباع (خاصة في الجماعات الأكاديمية)، حيث أظهرت الأبحاث علاقة إيجابية ثابتة بمتوسط <strong>20%</strong> («يتمتع القادة بنسبة ذكاء أعلى من غيرهم»). مع ملاحظة أن <em>زيادة ذكاء القائد كثيراً عن متوسط ذكاء الأفراد قد تجعل التفاهم أصعب</em>. كما يميل القائد ليكون أغنى ثقافة، أثرى معرفة، أوسع أفقاً، أبعد نظراً، أنفذ بصيرة، أقدر على التنبؤ بالمفاجآت والاستعداد لها، أحسن تصرفاً، أعلى إدراكاً وتفكيراً، وأفضل طلاقة لغوية وأحكم في الحكم.
+            </div>
+            <div class="trait-pill-box">
+              <strong>أهميتها للقائد:</strong>
+              تمكّنه من تحليل المشكلات المعقدة، استشراف المخاطر قبل وقوعها، وإقناع الآخرين بحجج واضحة ولغة سليمة.
+            </div>
+            <div class="trait-pill-box example-box">
+              <strong>مثال عملي <span class="example-tag">توضيحي</span></strong>
+              عميد كلية يلاحظ تراجع الإقبال على تخصص معين فيستبق الأزمة بتحديث الخطة الدراسية وشرح رؤيته بوضوح لأعضاء هيئة التدريس بأسلوب مقنع وقريب من لغتهم.
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Performance-Related Traits -->
+        <div class="trait-card amber">
+          <div class="trait-head">
+            <h4>3. سمات مرتبطة بالأداء</h4>
+            <span class="page-tag">ص 59</span>
+          </div>
+          <div class="trait-meta-grid">
+            <div class="trait-pill-box">
+              <strong>معناها وفق الكتاب:</strong>
+              الصفات الدافعة نحو العمل والإتقان، ومن أبرزها: <strong>الدافعية للإنجاز، والمسؤولية، والمبادأة، والمثابرة</strong>.
+            </div>
+            <div class="trait-pill-box">
+              <strong>أهميتها للقائد:</strong>
+              تجعل القائد قدوة عملية في الالتزام وعدم الاستسلام أمام العقبات، وتحوّل الخطط النظرية إلى نتائج ملموسة.
+            </div>
+            <div class="trait-pill-box example-box">
+              <strong>مثال عملي <span class="example-tag">توضيحي</span></strong>
+              مدير مشروع يبادر فوراً لإيجاد بديل عند تأخر أحد الموردين، ويتحمل مسؤولية الجدول الزمني ويثابر مع فريقه حتى تسليم المشروع في موعده.
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Emotional Traits -->
+        <div class="trait-card indigo">
+          <div class="trait-head">
+            <h4>4. السمات الانفعالية</h4>
+            <span class="page-tag">ص 59</span>
+          </div>
+          <div class="trait-meta-grid">
+            <div class="trait-pill-box">
+              <strong>معناها وفق الكتاب:</strong>
+              اتصاف القادة بـ<strong>الثبات الانفعالي، والنضج الانفعالي، وقوة الإرادة، والثقة بالنفس، ومعرفة النفس، وضبط النفس</strong>.
+            </div>
+            <div class="trait-pill-box">
+              <strong>أهميتها للقائد:</strong>
+              تحمي قراراته من التسرّع والغضب وقت الأزمات، وتبث الطمأنينة والثقة في نفوس المرؤوسين عند اشتداد الضغوط.
+            </div>
+            <div class="trait-pill-box example-box">
+              <strong>مثال عملي <span class="example-tag">توضيحي</span></strong>
+              مدير مدرسة يواجه اعتراضاً حاداً من ولي أمر غاضب فيحافظ على هدوئه وثباته الانفعالي، ويستمع إليه بوعي ثم يعالج المشكلة بحكمة دون انفعال.
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Social Traits -->
+        <div class="trait-card emerald">
+          <div class="trait-head">
+            <h4>5. السمات الاجتماعية</h4>
+            <span class="page-tag">ص 59 – 60</span>
+          </div>
+          <div class="trait-meta-grid">
+            <div class="trait-pill-box">
+              <strong>معناها وفق الكتاب:</strong>
+              يتسم القادة أكثر من الأتباع بـ<strong>التعاون وتشجيع روح التعاون</strong>، والقدرة على التعامل مع الجماعة، والميل إلى <strong>الانبساطية وروح الفكاهة والمرح</strong>، والقدرة على الاحتفاظ بأعضاء الجماعة ومراعاة مشاعرهم وكسب ثقتهم فيه وثقتهم في أنفسهم، والمشاركة الإيجابية في النشاط الاجتماعي، وخلق روح معنوية عالية، والبراعة في <strong>لمّ شمل الجماعة والإبقاء عليها</strong>.
+            </div>
+            <div class="trait-pill-box">
+              <strong>أهميتها للقائد:</strong>
+              تبني تماسك الفريق، وتقلل الصراعات الداخلية، وتجعل العمل الجماعي بيئة جاذبة ومحفّزة للجميع.
+            </div>
+            <div class="trait-pill-box example-box">
+              <strong>مثال عملي <span class="example-tag">توضيحي</span></strong>
+              رئيس قسم يجمع الموظفين الجدد والقدامى في لقاء ودي بروح مرحة، ويحرص على إشراك الجميع وتقدير جهودهم ليبقى القسم متماسكاً.
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. General Traits -->
+        <div class="trait-card purple">
+          <div class="trait-head">
+            <h4>6. سمات عامة</h4>
+            <span class="page-tag">ص 60</span>
+          </div>
+          <div class="trait-meta-grid">
+            <div class="trait-pill-box">
+              <strong>معناها وفق الكتاب:</strong>
+              تشمل <strong>حسن المظهر المعقول، والمحافظة على الوقت، ومعرفة العمل والإلمام به والافتخار به، والأمانة، وحسن السمعة، والتمتع بعادات شخصية حسنة، والتمسك بالقيم الروحية والإنسانية والمعايير الاجتماعية، والتواضع</strong>.
+            </div>
+            <div class="trait-pill-box">
+              <strong>أهميتها للقائد:</strong>
+              تصنع المصداقية الأخلاقية والمهنية للقائد، وتجعل الأتباع يحترمونه ويقتدون بسلوكه اليومي.
+            </div>
+            <div class="trait-pill-box example-box">
+              <strong>مثال عملي <span class="example-tag">توضيحي</span></strong>
+              مدير دائرة يحضر دائماً قبل موعد الاجتماعات بدقائق، يتقن تفاصيل عمله، يتسم بالأمانة والشفافية، ويتعامل بتواضع مع أصغر موظف في المؤسسة.
+            </div>
+          </div>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>يحتاج القائد إلى 3 مهارات مكتسبة (فنية، إنسانية، وذهنية تشمل الإدارية والسياسية) إلى جانب 6 فئات من السمات: جسمية، عقلية معرفية (ذكاء أعلى بمتوسط 20%)، مرتبطة بالأداء، انفعالية، اجتماعية، وعامة.</p></div>
+      </div>
+
+      <!-- Positives (briefly from p. 60-61) & Negatives (full from p. 61) -->
+      <div class="sub-anchor" id="sub-traits-negatives">
+        <h3 class="sub-title">سلبيات نظرية السمات القيادية (صفحة 61)</h3>
+        <p>
+          رغم أن نظرية السمات كانت أول لبنة علمية منظمة لشرح خصائص القائد ومهّدت للنظريات اللاحقة (ص 60–61)، فإن الكتاب يحدد <strong>خمس سلبيات رئيسية</strong> أدّت إلى تضاؤل أهميتها:
+        </p>
+        <div class="info-card rose">
+          <h4>❌ السلبيات الخمس لنظرية السمات (صفحة 61)</h4>
+          <ol class="styled-list num-list">
+            <li><strong>بناؤها على الأسلوب الاستبدادي:</strong> تأثر ظهور النظرية بالوضع الاجتماعي والأسلوب الإداري السائد آنذاك، فجاءت مبنية على فكرة الأسلوب الاستبدادي في القيادة. <em><span class="example-tag">مثال</span> افتراض أن القائد وحده يملك «سمات التفوق» وأن على المرؤوسين الطاعة فقط.</em></li>
+            <li><strong>صعوبة اجتماع السمات وتشتّت المقاييس:</strong> حددت عدداً كبيراً من السمات قد لا يخلو منها كثير من الناس، ويصعب أن تجتمع كلها في شخص واحد أبداً؛ لأن الدراسات أُجريت على جماعات مختلفة التكوين والعمر واعتمدت على أكثر من <strong>(500) مقياس للشخصية</strong> وأساليب مختلفة.</li>
+            <li><strong>البعد عن الواقع:</strong> هنالك عدد من القادة العظماء لا تتوفر فيهم كافة السمات المذكورة ومع ذلك كانوا ناجحين جداً (مثل غاندي ونابليون من حيث السمات الجسمية).</li>
+            <li><strong>غياب الأوزان والمستويات الدقيقة:</strong> لم تحدد الأهمية النسبية للسمات الواجب توافرها في القائد، ولم تضع مستويات دقيقة لها، ولم تفرّق بين <em>السمات المطلوبة لاكتساب القيادة</em> و<em>السمات المطلوبة لصيانتها والاستمرار فيها</em>.</li>
+            <li><strong>إهمال المرؤوسين والموقف وعناصر التنظيم:</strong> ركزت على شخص القائد فقط، ونظرت إليه كأنه مستقل عن الموقف في حين أنه عنصر من عناصر الموقف؛ ولم تفسر نجاح قادة لا تتوافر فيهم بعض هذه السمات.</li>
+          </ol>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>أبرز سلبيات نظرية السمات خمس: طابعها الاستبدادي، تشتّت أكثر من 500 مقياس واستحالة اجتماع السمات في شخص واحد، البعد عن الواقع، غياب الأوزان والمستويات الدقيقة، وإهمال الموقف والمرؤوسين.</p></div>
+      </div>
+
+      <!-- 5 Pedagogical Blocks -->
+      <div class="pedagogy-wrapper">
+        <div class="ped-box ped-summary">
+          <h3>📝 الخلاصة</h3>
+          <p>وسّعت نظرية السمات فكرة «الرجل العظيم» لتحدد صفات القائد (جسمية، عقلية، أدائية، انفعالية، اجتماعية، عامة) ومهاراته المكتسبة (فنية، إنسانية، ذهنية: إدارية وسياسية). لكنها فشلت في تفسير القيادة بالكامل لأنها ركزت على القائد وأهملت الموقف والمرؤوسين.</p>
+        </div>
+        <div class="ped-box ped-memorize">
+          <h3>🎯 للحفظ</h3>
+          <ul class="styled-list">
+            <li>علاقة الذكاء بالقيادة ثابتة بمتوسط <strong>20%</strong> (ص 59).</li>
+            <li>عدد مقاييس الشخصية المستخدمة في دراسات السمات: أكثر من <strong>500 مقياس</strong> (ص 61).</li>
+            <li>المهارات المكتسبة (ص 58–59): <strong>فنية، إنسانية، ذهنية (إدارية + سياسية)</strong>.</li>
+            <li>التصنيفات الستة للسمات (ص 59–60): جسمية، عقلية معرفية، مرتبطة بالأداء، انفعالية، اجتماعية، عامة.</li>
+          </ul>
+        </div>
+        <div class="ped-box ped-diff">
+          <h3>⚖️ افهم الفرق</h3>
+          <p><strong>المهارة الفنية مقابل المهارة الإنسانية (ص 58):</strong> المهارة الفنية تعني المقدرة في التعامل مع <em>الأشياء والأدوات والتخصص</em>، بينما المهارة الإنسانية تعني المقدرة في التعامل مع <em>الأفراد والجماعات ومشاعرهم</em>.</p>
+        </div>
+        <div class="ped-box ped-example">
+          <h3>💼 مثال تطبيقي <span class="example-tag">مثال توضيحي مضاف للشرح</span></h3>
+          <p>شركة تقنية عيّنت مهندساً فائق الذكاء (يمتلك مهارة فنية وعقلية عالية جداً) مديراً لفريق مبيعات، ففشل في قيادتهم لصعوبة تفاهمه معهم ونقص مهارته الاجتماعية. هذا يثبت سلبية نظرية السمات: امتلاك سمة الذكاء وحدها لا يكفي بمعزل عن الموقف وطبيعة المرؤوسين.</p>
+        </div>
+        <div class="ped-box ped-check full-span" data-mini-quiz>
+          <h3>❓ اختبر نفسك</h3>
+          <p class="mini-q-text">وفقاً لدراسات السمات العقلية المعرفية في صفحة 59، ماذا يحدث عندما تزيد نسبة ذكاء القائد كثيراً عن متوسط ذكاء أفراد جماعته؟</p>
+          <div class="mini-options">
+            <button type="button" class="mini-opt-btn" data-correct="false">يصبح التفاهم بين القائد والأتباع أسهل تلقائياً</button>
+            <button type="button" class="mini-opt-btn" data-correct="true">قد يجعل ذلك التفاهم بين القائد والأتباع أكثر صعوبة</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">يلغي الحاجة إلى المهارة الإنسانية</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">يضمن نجاح القيادة بنسبة 100%</button>
+          </div>
+          <div class="mini-feedback" data-ok="ممتاز! نص الكتاب في ص 59 يذكر أنه رغم تفوق القادة في الذكاء بمتوسط 20%، فإن زيادة الذكاء كثيراً عن متوسط الأفراد قد تُصعّب التفاهم." data-err="غير صحيح. ذكر الكتاب في صفحة 59 أن زيادة ذكاء القائد كثيراً عن متوسط ذكاء الأفراد قد تجعل التفاهم بين القائد والأتباع أكثر صعوبة."></div>
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <a href="#sec-great-man" class="sec-nav-btn">➡ القسم السابق: الرجل العظيم</a>
+        <a href="#sec-behavioral" class="sec-nav-btn next">القسم التالي: النظرية السلوكية ⬅</a>
+      </div>
+    </article>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 3: BEHAVIORAL THEORY -->
+    <!-- ===================================================================== -->
+    <article class="theory-section" id="sec-behavioral">
+      <div class="section-header">
+        <div class="section-title-group">
+          <div class="section-badge-num">3</div>
+          <div>
+            <h2>النظرية السلوكية في القيادة</h2>
+            <span class="section-en">Behavioral Theory</span>
+          </div>
+        </div>
+        <span class="page-tag">📖 صفحات الكتاب: 63 – 64</span>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">نشأة النظرية السلوكية ومفهومها (صفحة 63)</h3>
+        <p>
+          بعد أن فشلت نظرية السمات – القائمة على الصفات الشخصية الداخلية – في تقديم تفسيرات مقنعة لأسباب فشل بعض القادة ونجاح آخرين، قام الباحثون بنقلة نوعية: حوّلوا اهتمامهم من سؤال <em>«من هو القائد وما صفاته الداخلية؟»</em> إلى دراسة <strong>السلوك الخارجي للقادة</strong> والبحث في المتغيرات المؤثرة على تصرفاتهم وعملهم (ص 63).
+        </p>
+        <p>
+          وبذلك أصبحت <strong>النظرية السلوكية</strong> منهجاً لدراسة القيادة من خلال تحليل <strong>الأساليب القيادية</strong> التي يتبعها القائد، ومعرفة العلاقة بين هذه الأساليب ومستوى إنجاز جماعة العمل؛ إذ أثبتت الدراسات أن مجموعات العمل تُنتج نماذج متفاوتة من الإنجاز عندما تعمل تحت سلوكيات قيادية مختلفة (ص 63).
+        </p>
+
+        <div class="callout-grid">
+          <div class="info-card emerald">
+            <h4>🔎 كيف تنظر النظرية إلى سلوك القائد؟ (ص 63)</h4>
+            <p>تركز دراسة سلوكيات القادة على سؤالين محوريين:</p>
+            <ul class="styled-list">
+              <li><strong>ما يفعله القادة في الواقع</strong> (أفعالهم وممارساتهم العملية).</li>
+              <li><strong>كيف يفعلونه</strong> (الأسلوب والطريقة التي يديرون بها مرؤوسيهم).</li>
+            </ul>
+            <p style="margin-bottom:0;"><strong>الفرضية الأساسية:</strong> إن نجاح القائد يتوقف على <strong>النمط القيادي</strong> الذي يمارسه على مرؤوسيه.</p>
+          </div>
+          <div class="info-card gold">
+            <h4>📌 مسلمات النظرية السلوكية (ص 63 – 64)</h4>
+            <ul class="styled-list">
+              <li>تركز على <strong>دراسة سلوك القائد أثناء ممارسته لعمله</strong> بدلاً من التركيز على سماته وصفاته الشخصية.</li>
+              <li>تركز أولاً وأخيراً على <strong>رصد سلوك القائد</strong> أكثر منه على الطاقة الممنوحة لهذا السلوك.</li>
+              <li>تتبنى مقولة: <strong>«القادة يُصنعون ولا يُولدون»</strong>؛ لأن القيادة الناجحة مبنية على سلوك معروف ويمكن تعلّمه والتدرّب عليه (ص 64).</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>ظهرت النظرية السلوكية بعد فشل السمات لتركّز على السلوك الخارجي (ما يفعله القادة وكيف يفعلونه)، منطلقـة من أن القادة يُصنعون بالتعلّم وأن نجاح القائد يتوقف على نمطه القيادي.</p></div>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">محاور السلوك القيادي (صفحة 64)</h3>
+        <p>ميّزت النظريات السلوكية في القيادة – سواء في المؤسسات التربوية أو الصناعية أو العسكرية – بين محورين أساسيين للسلوك القيادي:</p>
+        <div class="callout-grid">
+          <div class="info-card">
+            <h4>⚙️ المحور الأول: التركيز على العمل (يوافق نظرية X)</h4>
+            <p style="margin-bottom:0;">أسلوب يركز على إنجاز العمل ويتجاهل الموظفين، حيث يوجّه القادة عمل الموظفين بإعلامهم: <em>ماذا؟ وأين؟ ومتى؟ وكيف؟ ومع من يجب عمل الأشياء؟</em> ويفضّلون تحديد المشكلات وحلها بأنفسهم. وتوافق فلسفتهم <strong>النظرية العلمية في الإدارة</strong> وتسمى <strong>نظرية (X)</strong>.</p>
+          </div>
+          <div class="info-card">
+            <h4>🤝 المحور الثاني: الاهتمام بالموظفين (يوافق نظرية Y)</h4>
+            <p style="margin-bottom:0;">أسلوب يعطي اهتماماً كبيراً للموظفين ورفاهيتهم، ويسعى فيه القادة إلى الانسجام مع فريق العمل وإيجاد مناخ من التعاون والتشجيع على التعبير عن الذات والحرية الشخصية في العمل. وتوافق فلسفتهم <strong>نظرية العلاقات الإنسانية في الإدارة</strong> وتسمى <strong>نظرية (Y)</strong>.</p>
+          </div>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>يدور السلوك القيادي حول محورين أساسيين: التركيز على العمل وتجاهل الموظفين (نظرية X / الإدارة العلمية)، أو الاهتمام بالموظفين ورفاهيتهم (نظرية Y / العلاقات الإنسانية).</p></div>
+      </div>
+
+      <!-- 5 Pedagogical Blocks -->
+      <div class="pedagogy-wrapper">
+        <div class="ped-box ped-summary">
+          <h3>📝 الخلاصة</h3>
+          <p>النظرية السلوكية نقلت البحث من «صفات القائد الفطرية» إلى «أفعاله وسلوكياته القابلة للتعلّم». وهي تؤمن بأن القادة يُصنعون ولا يُولدون، وأن السلوك القيادي يدور حول محورين: الاهتمام بالعمل (X) أو الاهتمام بالموظفين (Y).</p>
+        </div>
+        <div class="ped-box ped-memorize">
+          <h3>🎯 للحفظ</h3>
+          <ul class="styled-list">
+            <li>السؤالان المحوريان (ص 63): <strong>ما يفعله القادة في الواقع؟ وكيف يفعلونه؟</strong></li>
+            <li>الفرضية الأساسية: نجاح القائد يتوقف على <strong>النمط القيادي</strong> الذي يمارسه على مرؤوسيه.</li>
+            <li>المقولة الجوهرية: <strong>القادة يُصنعون ولا يُولدون</strong> (سلوك يمكن تعلّمه).</li>
+          </ul>
+        </div>
+        <div class="ped-box ped-diff">
+          <h3>⚖️ افهم الفرق</h3>
+          <p><strong>نظرية السمات مقابل النظرية السلوكية:</strong> نظرية السمات تبحث في <em>الصفات الشخصية الداخلية</em> (ما يملكه القائد)، أما السلوكية فتبحث في <em>السلوك الخارجي المرصود</em> (ما يفعله القائد وكيف يتصرف مع مرؤوسيه).</p>
+        </div>
+        <div class="ped-box ped-example">
+          <h3>💼 مثال تطبيقي <span class="example-tag">مثال توضيحي مضاف للشرح</span></h3>
+          <p>جامعة تنظم برنامجاً تدريبياً لرؤساء الأقسام الجدد لتعليمهم مهارات عقد الاجتماعات، وإعطاء التغذية الراجعة، وتوزيع المهام بوضوح. هذا البرنامج ينطلق من النظرية السلوكية لأنها تعتبر القيادة سلوكاً عملياً يُكتسب بالتدريب.</p>
+        </div>
+        <div class="ped-box ped-check full-span" data-mini-quiz>
+          <h3>❓ اختبر نفسك</h3>
+          <p class="mini-q-text">ما الفرضية الأساسية التي تنطلق منها النظرية السلوكية في صفحة 63؟</p>
+          <div class="mini-options">
+            <button type="button" class="mini-opt-btn" data-correct="false">أن القائد يولد بسمات وراثية لا يمكن تغييرها</button>
+            <button type="button" class="mini-opt-btn" data-correct="true">أن نجاح القائد يتوقف على النمط القيادي الذي يمارسه على مرؤوسيه</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">أن القيادة تعتمد على الطول والوزن فقط</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">أن البيئة التنظيمية لا علاقة لها بالأداء</button>
+          </div>
+          <div class="mini-feedback" data-ok="أحسنت! تنص صفحة 63 بوضوح على أن الفرضية الأساسية للنظرية السلوكية هي أن نجاح القائد يتوقف على النمط القيادي الذي يمارسه على مرؤوسيه." data-err="إجابة غير دقيقة. الفرضية الأساسية في صفحة 63 هي: أن نجاح القائد يتوقف على النمط القيادي الذي يمارسه على مرؤوسيه."></div>
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <a href="#sec-traits" class="sec-nav-btn">➡ القسم السابق: نظرية السمات</a>
+        <a href="#sec-xy" class="sec-nav-btn next">القسم التالي: نظرية X و Y ⬅</a>
+      </div>
+    </article>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 4: THEORY X AND Y -->
+    <!-- ===================================================================== -->
+    <article class="theory-section" id="sec-xy">
+      <div class="section-header">
+        <div class="section-title-group">
+          <div class="section-badge-num">4</div>
+          <div>
+            <h2>نظرية X و نظرية Y (دوجلاس ماكجريجور)</h2>
+            <span class="section-en">McGregor's Theory X &amp; Theory Y • منبثقة عن النظرية السلوكية</span>
+          </div>
+        </div>
+        <span class="page-tag">📖 صفحات الكتاب: 64 – 68 (جدول ص 67)</span>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">افتراضات نظريتي X و Y حول الطبيعة البشرية (صفحات 64 – 67)</h3>
+        <p>
+          ركّز العالم <strong>دوجلاس ماكجريجور (Douglas McGregor)</strong> على العلاقة بين الدافعية وفلسفة الطبيعة البشرية، وبنى نظريته على أن المديرين يضعون افتراضات مسبقة عن العاملين معهم، وبناءً على تلك الافتراضات يختارون أسلوب التعامل والرقابة والتحفيز (ص 67). وقد قسّم هذه الافتراضات إلى اتجاهين متناقضين:
+        </p>
+
+        <div class="callout-grid">
+          <div class="info-card rose">
+            <h4>🔴 افتراضات نظرية (X) – الاتجاه التشاؤمي (ص 64 – 65)</h4>
+            <ul class="styled-list rose-dots">
+              <li><strong>النظرة للموظف:</strong> يكره العمل ويأتي مضطراً ويتفاداه إن استطاع، وكسول بطبعه ولا طموح لديه.</li>
+              <li><strong>أسلوب الإشراف والرقابة:</strong> بما أنه يأتي مضطراً، فأفضل أسلوب هو <strong>القهر والتهديد والتخويف بالفصل</strong>، مع رقابة مركزية شديدة وبنية هرمية محكمة وندرة تفويض السلطة.</li>
+              <li><strong>التحفيز:</strong> يعتمد على نهج <strong>«الجزرة والعصا»</strong> والحوافز المادية (الحاجات الفسيولوجية والأمان).</li>
+              <li><strong>المشاركة في القرار:</strong> يتجنب تحمل المسؤولية، لذا <strong>لا يُؤخذ رأيه</strong> في مشكلات العمل أو اتخاذ القرارات.</li>
+            </ul>
+          </div>
+          <div class="info-card emerald">
+            <h4>🟢 افتراضات نظرية (Y) – الاتجاه التفاؤلي (ص 65 – 66)</h4>
+            <ul class="styled-list">
+              <li><strong>النظرة للموظف:</strong> يحب العمل ويقدسه وهو شيء طبيعي كاللعب وهدف في حد ذاته، وطموح وقادر على حل المشاكل الإبداعية.</li>
+              <li><strong>أسلوب الإشراف والرقابة:</strong> إدارة <strong>تشاركية لا مركزية</strong> قائمة على الثقة والتواصل المفتوح، وتفويض السلطات، والاعتماد على <strong>الرقابة والتوجيه الذاتي</strong>.</li>
+              <li><strong>التحفيز:</strong> يركز على <strong>التحفيز المعنوي</strong> (الانتماء، التقدير، تحقيق الذات) ومنح فرص متكررة للترقية وتطوير المهارات.</li>
+              <li><strong>المشاركة في القرار:</strong> يرغب في إبداء الرأي ويمكنه بالتدريب تحمل المسؤولية والمبادأة والابتكار.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>تفترض نظرية (X) تشاؤمياً أن الموظف كسول ويحتاج قهراً ورقابة مركزية وحافزاً مادياً، بينما تفترض (Y) تفاؤلياً أنه يحب العمل ومبدع ويحتاج ثقة وتفويضاً وتحفيزاً معنوياً.</p></div>
+      </div>
+
+      <!-- Exact Rebuilt Table from Page 67 -->
+      <div class="sub-anchor">
+        <h3 class="sub-title">جدول المقارنة بين نظرية (X) ونظرية (Y) – صفحة 67</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>عناصر الاختلاف</th>
+                <th>نظرية (X) – الاتجاه التشاؤمي</th>
+                <th>نظرية (Y) – الاتجاه التفاؤلي</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label" data-label="عناصر الاختلاف">النظرة إلى العمل</td>
+                <td data-label="نظرية (X) – الاتجاه التشاؤمي">العمل غير مريح بالنسبة لمعظم الأفراد وشعارهم (العمل لا بد منه).</td>
+                <td data-label="نظرية (Y) – الاتجاه التفاؤلي">العمل شيء طبيعي مثله مثل اللعب إذا كانت ظروف العمل مناسبة.</td>
+              </tr>
+              <tr>
+                <td class="row-label" data-label="عناصر الاختلاف">القدرة الابتكارية</td>
+                <td data-label="نظرية (X) – الاتجاه التشاؤمي">معظم الأفراد يفتقرون إلى القدرة على الابتكار في حل المشكلات ويميلون إلى الحلول التقليدية في مواجهتها.</td>
+                <td data-label="نظرية (Y) – الاتجاه التفاؤلي">القدرة الابتكارية موزعة على الأفراد توزيعاً طبيعياً ومعظمهم لديه القدرة على الابتكار.</td>
+              </tr>
+              <tr>
+                <td class="row-label" data-label="عناصر الاختلاف">حجم العمل</td>
+                <td data-label="نظرية (X) – الاتجاه التشاؤمي">معظم الأفراد يميلون إلى أداء الحد الأدنى من المطلوب إنجازه والذي يعفيهم من المساءلة عن عدم الإنجاز.</td>
+                <td data-label="نظرية (Y) – الاتجاه التفاؤلي">معظم الأفراد يحاولون بذل أقصى ما في وسعهم لأداء أكبر حجم ممكن من العمل.</td>
+              </tr>
+              <tr>
+                <td class="row-label" data-label="عناصر الاختلاف">الطموح وتحمل المسؤولية</td>
+                <td data-label="نظرية (X) – الاتجاه التشاؤمي">معظم الأفراد غير طموحين وليسوا على مستوى المسؤولية ودائماً يحتاجون إلى من يراقب عملهم في كل خطوة.</td>
+                <td data-label="نظرية (Y) – الاتجاه التفاؤلي">معظم الأفراد يميلون إلى الرقابة الذاتية من أجل تحقيق الأهداف باعتبار أنهم جديرون بالثقة.</td>
+              </tr>
+              <tr>
+                <td class="row-label" data-label="عناصر الاختلاف">مستويات التحفيز</td>
+                <td data-label="نظرية (X) – الاتجاه التشاؤمي">يركز التحفيز على مستوى الحاجات الفسيولوجية والأمان (التحفيز المادي).</td>
+                <td data-label="نظرية (Y) – الاتجاه التفاؤلي">يركز التحفيز على مستوى الانتماء للمجموعة والتقدير وتحقيق الذات (التحفيز المعنوي).</td>
+              </tr>
+              <tr>
+                <td class="row-label" data-label="عناصر الاختلاف">التوجيه</td>
+                <td data-label="نظرية (X) – الاتجاه التشاؤمي">لا بد من إشراف مباشر ودقيق والضغط بالقوة لتحقيق الأهداف.</td>
+                <td data-label="نظرية (Y) – الاتجاه التفاؤلي">التوجيه الذاتي؛ حيث يقوم الأفراد بتوجيه أنفسهم والالتزام لديهم مرتبط بشخصيتهم إذا تم تحفيزهم بشكل مناسب <sup>(*)</sup>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="footnote-box">
+          (*) <strong>تنبيه علمي دقيق لمراجعة الكتاب:</strong> في جدول صفحة 67 تكرّرت عبارة عمود (X) في خلية «التوجيه» لعمود (Y) خطأً مطبعياً، وقد صحّح الكتاب ذلك في شرح صفحة 68 مباشرة («تعتمد نظرية Y على التوجيه الذاتي») وفي إعادة الجدول نفسه في صفحة 150 («يقوم الأفراد بتوجيه أنفسهم والالتزام لديهم شيء مرتبط بشخصيتهم إذا تم تحفيزهم بشكل مناسب»).
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>يلخّص جدول صفحة 67 الفروق بين (X) التشاؤمية و(Y) التفاؤلية عبر 6 معايير: النظرة للعمل، القدرة الابتكارية، حجم العمل، الطموح وتحمل المسؤولية، مستويات التحفيز، والتوجيه.</p></div>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">شرح مبسّط للفروقات والانتقادات (صفحة 68)</h3>
+        <ul class="styled-list">
+          <li><strong>الفرق الجوهري:</strong> تبدو نظرية (X) <strong>تسلطية تشاؤمية</strong> لا مرونة فيها وسيطرتها خارجية (التوجيه والتحكم عبر السلطة)، وهي تختزل العمال في «تروس في آلة» مما يُثبّط عزيمتهم على المدى الطويل (ص 66، 68). أما نظرية (Y) فتبدو <strong>ديمقراطية تفاؤلية</strong> مرنة تقوم على <strong>مبدأ التكامل</strong> بين أهداف القيادة والمرؤوسين وتراعي مشاعر الأفراد ولا تنكرها (ص 68).</li>
+          <li><strong>الانتقاد الموجّه للنظريتين (ص 68):</strong> وُجّهت انتقادات لنظريتي X وY لكونهما تفترضان الاقتصار على إحدى النظريتين فقط، بينما في الواقع يمتلك المرؤوسون خواصاً من كلتيهما؛ لذا يمكن للمدير الذكي الاستفادة من مبادئهما معاً عبر تحليل شخصيات العاملين وتحديد الأسلوب الأنسب لكل فئة.</li>
+        </ul>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>نظرية (X) تسلطية خارجية تختزل العامل كترس في آلة، و(Y) ديمقراطية تشاركية تقوم على التكامل؛ لكن الانتقاد الموجه لهما أن الموظفين يحملون صفات من النظريتين معاً.</p></div>
+      </div>
+
+      <!-- 5 Pedagogical Blocks -->
+      <div class="pedagogy-wrapper">
+        <div class="ped-box ped-summary">
+          <h3>📝 الخلاصة</h3>
+          <p>توضح نظريتا X وY لماكجريجور أن طريقة إدارة المدير تنبع من نظرته لطبيعة الموظفين: فالمدير المتشائم (X) يلجأ للقهر والرقابة اللصيقة والحافز المادي، بينما المتفائل (Y) يلجأ للمشاركة والتفويض والثقة والتحفيز المعنوي.</p>
+        </div>
+        <div class="ped-box ped-memorize">
+          <h3>🎯 للحفظ</h3>
+          <ul class="styled-list">
+            <li>صاحب النظرية: <strong>دوجلاس ماكجريجور</strong>.</li>
+            <li>عناصر جدول ص 67 الستة: <strong>النظرة للعمل – القدرة الابتكارية – حجم العمل – الطموح وتحمل المسؤولية – مستويات التحفيز – التوجيه</strong>.</li>
+            <li>التحفيز في X: <strong>مادي (فسيولوجية وأمان)</strong>؛ وفي Y: <strong>معنوي (انتماء وتقدير وتحقيق ذات)</strong>.</li>
+            <li>مبدأ X: <strong>التوجيه والتحكم بالسلطة</strong>؛ ومبدأ Y: <strong>التكامل والتوجيه الذاتي</strong>.</li>
+          </ul>
+        </div>
+        <div class="ped-box ped-diff">
+          <h3>⚖️ افهم الفرق</h3>
+          <p><strong>الرقابة في X مقابل Y:</strong> في X الرقابة <em>خارجية ولصيقة في كل خطوة</em> لعدم الثقة بالموظف، أما في Y فالرقابة <em>ذاتية نابعة من داخل الموظف</em> لأنه يشعر بالثقة والانتماء لأهداف المؤسسة.</p>
+        </div>
+        <div class="ped-box ped-example">
+          <h3>💼 مثال تطبيقي: موقف وظيفي واحد بمديرين مختلفين <span class="example-tag">مثال توضيحي مضاف للشرح</span></h3>
+          <p><strong>الموقف:</strong> تأخر تسليم تقرير شهري في قسم التسويق.<br>
+          • <strong>مدير نظرية (X):</strong> يفترض أن الموظفين متكاسلون، فيفرض توقيعاً يومياً لمتابعة كل فقرة، ويهدد بخصم من الراتب إذا تكرر التأخير، ولا يسألهم عن أسباب التأخير.<br>
+          • <strong>مدير نظرية (Y):</strong> يجتمع بالفريق لسماع التحديات، يطلب مقترحاتهم لتطوير آلية العمل، يفوض لهم تقسيم المهام بمرونة، ويشيد بجهودهم علناً عند التسليم.</p>
+        </div>
+        <div class="ped-box ped-check full-span" data-mini-quiz>
+          <h3>❓ اختبر نفسك</h3>
+          <p class="mini-q-text">بحسب جدول صفحة 67، على أي مستوى من الحاجات يركز التحفيز في نظرية (Y)؟</p>
+          <div class="mini-options">
+            <button type="button" class="mini-opt-btn" data-correct="false">الحاجات الفسيولوجية والأمان فقط</button>
+            <button type="button" class="mini-opt-btn" data-correct="true">الانتماء للمجموعة والتقدير وتحقيق الذات (التحفيز المعنوي)</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">التهديد بالفصل والعقاب المالي</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">الحد الأدنى من الإنجاز لتفادي المساءلة</button>
+          </div>
+          <div class="mini-feedback" data-ok="صحيح 100%! تركز نظرية (Y) على التحفيز المعنوي: الانتماء للمجموعة والتقدير وتحقيق الذات." data-err="غير صحيح. نظرية (Y) تركز على التحفيز المعنوي (الانتماء للمجموعة والتقدير وتحقيق الذات)، بينما الحاجات الفسيولوجية والأمان تخص نظرية (X)."></div>
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <a href="#sec-behavioral" class="sec-nav-btn">➡ القسم السابق: النظرية السلوكية</a>
+        <a href="#sec-situational" class="sec-nav-btn next">القسم التالي: النظرية الموقفية وفيدلر ⬅</a>
+      </div>
+    </article>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 5: SITUATIONAL THEORY & FIEDLER -->
+    <!-- ===================================================================== -->
+    <article class="theory-section" id="sec-situational">
+      <div class="section-header">
+        <div class="section-title-group">
+          <div class="section-badge-num">5</div>
+          <div>
+            <h2>النظرية الموقفية ونموذج فيدلر</h2>
+            <span class="section-en">Situational Theory &amp; Fiedler's Model</span>
+          </div>
+        </div>
+        <span class="page-tag">📖 صفحات الكتاب: 71 – 75</span>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">مفهوم النظرية الموقفية وفكرتها الأساسية (صفحتا 71 و72)</h3>
+        <p>
+          جاءت <strong>النظرية الموقفية</strong> لعلاج فشل النظريات السابقة (السمات والأنماط القيادية) في تحديد صيغة ثابتة للقيادة الفعالة، فقامت بربط <strong>السلوك القيادي بالموقف والظروف المحيطة به</strong> (ص 71–72).
+        </p>
+        <p>
+          <strong>لماذا لا يوجد أسلوب قيادي واحد يصلح لجميع المواقف؟</strong> تؤكد النظرية أن القائد الذي يصلح لقيادة مرحلة ما حسب ظرف معين قد لا يصلح لظرف أو مرحلة أخرى؛ لأن السمات والمهارات المطلوبة تختلف باختلاف الموقف والموقع القيادي والمستوى الإداري. وضرب الكتاب أمثلة واضحة (ص 72):
+        </p>
+        <ul class="styled-list">
+          <li><strong>اختلاف طبيعة العمل:</strong> فرئيس مصلحة حكومية يحتاج إلى مهارات وقدرات تختلف عن تلك التي يحتاجها القائد العسكري في الميدان.</li>
+          <li><strong>اختلاف المستوى الإداري داخل التنظيم الواحد:</strong> فالقائد في قمة الهيكل التنظيمي يحتاج إلى مهارات تختلف عن مدير إدارة أو رئيس قسم.</li>
+          <li><strong>القيادة ليست حكراً على الاستثنائيين (ص 71):</strong> ترى النظرية أن أي فرد سوي عادي يمكن أن يصبح قائداً إذا وجد نفسه في موقف أو أزمة تستدعي الحل واستطاع التعامل معها وتقديم حلول مقبولة، وأن القائد الأفضل هو الذي يستطيع <strong>تكييف أسلوبه</strong> ليتناسب مع أي مجموعة وفي وقت معين وتحت أي ظروف (ص 72).</li>
+        </ul>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>تربط النظرية الموقفية القيادة بالظروف المحيطة؛ فلا يوجد نمط واحد يصلح لكل المواقف والمستويات، وأي فرد عادي قد يصبح قائداً إذا نجح في حل أزمة طارئة.</p></div>
+      </div>
+
+      <!-- Fiedler's 3 Variables (p. 73) -->
+      <div class="sub-anchor" id="sub-fiedler-vars">
+        <h3 class="sub-title">النظرية الموقفية لفيدلر ومتغيراته الثلاثة (صفحتا 72 و73)</h3>
+        <p>
+          تُعد دراسات جامعة <strong>إلينوي (Illinois)</strong> في الولايات المتحدة بقيادة العالم الأمريكي <strong>فيدلر (Fiedler)</strong> عام <strong>1967م</strong> من أهم دراسات القيادة الموقفية؛ إذ طوّر أول نموذج موقفي شامل يقوم على قاعدة <strong>«التطابق بين أسلوب القائد والموقف»</strong> (عاملان أساسيان: الأسلوب والموقف). ويرى فيدلر أن زيادة فعالية المنظمة لا تتوقف على تدريب القائد وحسب، بل لا بد من تطوير ظروف المنظمة الداخلية أيضاً (ص 73).
+        </p>
+
+        <!-- Visual Diagram of Fiedler's 3 Variables -->
+        <div class="svg-box" aria-label="رسم توضيحي لمتغيرات فيدلر الثلاثة">
+          <svg width="680" height="175" viewBox="0 0 680 175" xmlns="http://www.w3.org/2000/svg">
+            <rect x="215" y="10" width="250" height="44" rx="12" fill="#1b365d"/>
+            <text x="340" y="37" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">تشخيص الموقف القيادي (فيدلر ص 73)</text>
+            <line x1="340" y1="54" x2="115" y2="92" stroke="#0f766e" stroke-width="2.5"/>
+            <line x1="340" y1="54" x2="340" y2="92" stroke="#0f766e" stroke-width="2.5"/>
+            <line x1="340" y1="54" x2="565" y2="92" stroke="#0f766e" stroke-width="2.5"/>
+            <rect x="18" y="92" width="194" height="72" rx="12" fill="#e6f6f4" stroke="#0f766e" stroke-width="2"/>
+            <text x="115" y="120" fill="#1b365d" font-size="14" font-weight="bold" text-anchor="middle">1. علاقة القائد بمرؤوسيه</text>
+            <text x="115" y="144" fill="#475569" font-size="12" text-anchor="middle">الثقة والاحترام والتقبل</text>
+            <rect x="243" y="92" width="194" height="72" rx="12" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+            <text x="340" y="120" fill="#1b365d" font-size="14" font-weight="bold" text-anchor="middle">2. هيكلة الوظيفة</text>
+            <text x="340" y="144" fill="#475569" font-size="12" text-anchor="middle">وضوح المهام وتعريفها</text>
+            <rect x="468" y="92" width="194" height="72" rx="12" fill="#eef2ff" stroke="#4338ca" stroke-width="2"/>
+            <text x="565" y="120" fill="#1b365d" font-size="14" font-weight="bold" text-anchor="middle">3. قوة موقع القيادة</text>
+            <text x="565" y="144" fill="#475569" font-size="12" text-anchor="middle">المكافآت والعقوبات والخبرة</text>
+          </svg>
+        </div>
+
+        <div class="callout-grid">
+          <div class="info-card emerald">
+            <h4>1. علاقة القائد بمرؤوسيه (ص 73)</h4>
+            <p style="margin-bottom:0;">تتركز في مدى <strong>الثقة والاحترام المتبادل</strong> بين القائد ومرؤوسيه ومدى تقبّلهم له. وقد تم قياسها عبر تقويم القائد لبيئة الجماعة، وتقويم أفراد الجماعة لنفس البيئة، وقياس شعبية القائد بين مرؤوسيه.</p>
+          </div>
+          <div class="info-card gold">
+            <h4>2. هيكلة الوظيفة (ص 73)</h4>
+            <p style="margin-bottom:0;">تتعلق بمدى <strong>وضوح مهام العمل ومدى تعريفها وهيكلتها</strong>، وتقيس تعاظم أو تباطؤ إدارة القائد في تحديد الأهداف وإلمام المرؤوسين بأبعاد أعمالهم. <em>وكلما زادت درجة هيكلة المهام، كان العمل أكثر سهولة والعكس صحيح.</em></p>
+          </div>
+          <div class="info-card indigo">
+            <h4>3. قوة موقع القيادة (ص 73)</h4>
+            <p style="margin-bottom:0;">تتمثل في سلطة القائد ومدى تحكمه في <strong>منح المكافآت وتحديد العقوبات</strong>، وتعكس قوته في التأثير على المرؤوسين؛ وتنبع من مصدرين: <strong>قوة الخبرة</strong> (خبرات القائد غير المتوفرة للجماعة) و<strong>القوة الرسمية</strong> (امتداد السلطات الرسمية: حق الإثابة وحق توقيع العقاب).</p>
+          </div>
+        </div>
+        <p class="footnote-box">
+          📌 <strong>ملاحظة ص 74:</strong> يحدد فيدلر لتشخيص الموقف الملائم 3 عوامل مرتبة حسب أهميتها وقوة تأثيرها: (1) نوع القائد ودرجة قوة منصبه الرسمي، (2) نوع الجماعة وعلاقة القائد بها وثقتهم وتقديرهم له، (3) البناء التنظيمي للعمل ومدى وضوحه.
+        </p>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>يقوم نموذج فيدلر (1967) على التطابق بين الأسلوب والموقف عبر 3 متغيرات: علاقة القائد بمرؤوسيه (الثقة)، هيكلة الوظيفة (وضوح المهام)، وقوة موقع القيادة (الخبرة والسلطة الرسمية).</p></div>
+      </div>
+
+      <!-- Exact Rebuilt Table from Page 74 -->
+      <div class="sub-anchor" id="sec-fiedler-table">
+        <h3 class="sub-title">جدول أساليب القيادة الموقفية – صفحة 74 (ومستويات النضج)</h3>
+        <p>
+          تصنّف القيادة الموقفية في صفحة 74 إلى <strong>أربعة أساليب</strong> يمثّل كل منها مزيجاً مختلفاً من مستويات <em>السلوك التوجيهي</em> و<em>السلوك المساند</em> المقابلة لمستويات متعددة من النضج (في أداء المهام) لدى المرؤوسين:
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 7%;">الرقم</th>
+                <th style="width: 21%;">الأسلوب القيادي</th>
+                <th>الشرح والتطبيق وفق جدول صفحة 74</th>
+                <th style="width: 26%;">مستوى الكفاءة والحماس (توضيح ص 75)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label" style="text-align:center;" data-label="الرقم">1</td>
+                <td class="row-label" data-label="الأسلوب القيادي">الأسلوب الإخباري</td>
+                <td data-label="الشرح والتطبيق وفق جدول صفحة 74">يعطي هذا النوع تعليمات واضحة لإنجاز المهام، ويلائم هذا المرؤوس الذي <strong>ما زال غير جاهز لتحمل مسؤولية العمل</strong> الذي يقوم به.</td>
+                <td data-label="مستوى الكفاءة والحماس (توضيح ص 75)">حماس قليل وكفاءة قليلة ← يحتاج <strong>توجيهاً عالياً ومساندة منخفضة (س1)</strong>.</td>
+              </tr>
+              <tr>
+                <td class="row-label" style="text-align:center;" data-label="الرقم">2</td>
+                <td class="row-label" data-label="الأسلوب القيادي">الأسلوب التدريبي</td>
+                <td data-label="الشرح والتطبيق وفق جدول صفحة 74">يكون المرؤوس قد تعلّم المهام لكنه <strong>غير قادر على تحمل مسؤولية أدائها وحده</strong>؛ لذلك يستمر الأسلوب الإخباري من المدير مع الأسلوب التدريبي لخلق الثقة لديه وتحفيزه، أي يكون <strong>الاتصال باتجاهين</strong>.</td>
+                <td data-label="مستوى الكفاءة والحماس (توضيح ص 75)">حماس كبير وكفاءة قليلة ← يحتاج <strong>توجيهاً عالياً ومساندة عالية (س2)</strong>.</td>
+              </tr>
+              <tr>
+                <td class="row-label" style="text-align:center;" data-label="الرقم">3</td>
+                <td class="row-label" data-label="الأسلوب القيادي">الأسلوب المساند</td>
+                <td data-label="الشرح والتطبيق وفق جدول صفحة 74">عندما يشعر المرؤوس بالثقة في إنجاز مهماته، فإن المدير لا يحتاج كثيراً للأسلوب الإخباري، بل يحتاج إلى <strong>فتح الاتصال مع المرؤوس والإصغاء له ودعمه ومساندته</strong>، وبذلك يتشارك المدير والمرؤوس في عملية اتخاذ القرار.</td>
+                <td data-label="مستوى الكفاءة والحماس (توضيح ص 75)">كفاءة عالية وحماس قليل ← يحتاج <strong>مساندة عالية وتوجيهاً منخفضاً (س3)</strong>.</td>
+              </tr>
+              <tr>
+                <td class="row-label" style="text-align:center;" data-label="الرقم">4</td>
+                <td class="row-label" data-label="الأسلوب القيادي">الأسلوب التفويضي</td>
+                <td data-label="الشرح والتطبيق وفق جدول صفحة 74">عندما يكون المرؤوس على <strong>درجة عالية من النضج</strong> تجاه المهام، ومؤهلاً ومحفزاً لتحمل المسؤولية كاملة؛ فما على المدير إلا تحديد المهام وترك مسؤولية تنفيذها للموظف ذي الخبرة العالية، حيث <strong>يُمنح صلاحية اتخاذ القرار ودرجة عالية من الثقة</strong>.</td>
+                <td data-label="مستوى الكفاءة والحماس (توضيح ص 75)">كفاءة عالية وحماس كبير ← يحتاج <strong>مساندة منخفضة وتوجيهاً منخفضاً (س4)</strong>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>كيف تفهم الجدول وتطبّقه بسهولة؟</strong> اسأل نفسك سؤالين عن الموظف: <em>هل يعرف كيف ينجز المهمة (الكفاءة)؟ وهل لديه الثقة والرغبة (الحماس)؟</em> فإذا كان مبتدئاً غير جاهز نبدأ بـ<strong>الإخباري</strong>، وإذا تعلّم الأساسيات ولم يقدر وحده ننتقل لـ<strong>التدريبي</strong>، وإذا أتقن العمل لكنه يحتاج دعماً ومشاركة نستخدم <strong>المساند</strong>، وعندما ينضج تماماً نمنحه الاستقلالية بـ<strong>التفويضي</strong>.
+        </p>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>تتدرّج أساليب القيادة الموقفية الأربعة حسب نضج الموظف وكفاءته وحماسه: الإخباري (غير جاهز) ← التدريبي (تعلّم ولا يقدر وحده) ← المساند (واثق ويحتاج دعماً) ← التفويضي (ناضج ومؤهل تماماً).</p></div>
+      </div>
+
+      <!-- 5 Pedagogical Blocks -->
+      <div class="pedagogy-wrapper">
+        <div class="ped-box ped-summary">
+          <h3>📝 الخلاصة</h3>
+          <p>لا يوجد أسلوب قيادي واحد يصلح لكل زمان ومكان؛ فالقائد الفعّال يقرأ الموقف عبر متغيرات فيدلر الثلاثة (العلاقة، هيكلة الوظيفة، قوة الموقع) ويختار الأسلوب الأنسب لمستوى نضج موظفيه من بين الأساليب الأربعة: الإخباري، التدريبي، المساند، والتفويضي.</p>
+        </div>
+        <div class="ped-box ped-memorize">
+          <h3>🎯 للحفظ</h3>
+          <ul class="styled-list">
+            <li>نموذج فيدلر (جامعة إلينوي <strong>1967</strong>): يقوم على <strong>التطابق بين الأسلوب والموقف</strong>.</li>
+            <li>متغيرات فيدلر الثلاثة (ص 73): <strong>علاقة القائد بمرؤوسيه – هيكلة الوظيفة – قوة موقع القيادة</strong>.</li>
+            <li>مصادر قوة الموقع (ص 73): <strong>قوة الخبرة</strong> + <strong>القوة الرسمية</strong> (الإثابة والعقاب).</li>
+            <li>أساليب جدول ص 74 الأربعة: <strong>الإخباري – التدريبي – المساند – التفويضي</strong>.</li>
+          </ul>
+        </div>
+        <div class="ped-box ped-diff">
+          <h3>⚖️ افهم الفرق</h3>
+          <p><strong>الأسلوب التدريبي مقابل الأسلوب المساند (ص 74):</strong> في <em>التدريبي</em> يكون الموظف غير قادر بعد على أداء المهمة وحده فيستمر التوجيه مع التحفيز (اتصال باتجاهين)، أما في <em>المساند</em> فالموظف واثق وقادر على الإنجاز فلا يحتاج توجيهاً كثيراً بل يحتاج إصغاءً ودعماً ومشاركة في القرار.</p>
+        </div>
+        <div class="ped-box ped-example">
+          <h3>💼 سيناريو عملي لاختيار الأسلوب <span class="example-tag">مثال توضيحي مضاف للشرح</span></h3>
+          <p>في مستشفى، يشرف رئيس قسم التمريض على أربعة ممرضين: مع الممرض المتدرب في يومه الأول يستخدم <strong>الإخباري</strong> بتعليمات دقيقة؛ ومع ممرض تعلّم الخطوات لكنه متردد يستخدم <strong>التدريبي</strong>؛ ومع ممرضة خبيرة تشعر بالإرهاق ونقص الحماس يستخدم <strong>المساند</strong> بالإصغاء وإشراكها بالقرار؛ ومع ممرض خبير ومتحمس يستخدم <strong>التفويضي</strong> ويترك له إدارة الوردية بثقة.</p>
+        </div>
+        <div class="ped-box ped-check full-span" data-mini-quiz>
+          <h3>❓ اختبر نفسك</h3>
+          <p class="mini-q-text">وفقاً لجدول صفحة 74، ما الأسلوب القيادي المناسب لموظف لديه كفاءة وخبرة عالية ونضج تام، ومحفّز لتحمل المسؤولية كاملة؟</p>
+          <div class="mini-options">
+            <button type="button" class="mini-opt-btn" data-correct="false">الأسلوب الإخباري</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">الأسلوب التدريبي</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">الأسلوب المساند</button>
+            <button type="button" class="mini-opt-btn" data-correct="true">الأسلوب التفويضي</button>
+          </div>
+          <div class="mini-feedback" data-ok="ممتاز! الأسلوب التفويضي هو الأنسب للموظف ذي النضج والخبرة العالية والمحفّز لتحمل المسؤولية كاملة." data-err="غير صحيح. الإجابة الصحيحة هي الأسلوب التفويضي (جدول صفحة 74)."></div>
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <a href="#sec-xy" class="sec-nav-btn">➡ القسم السابق: نظرية X و Y</a>
+        <a href="#sec-path-goal" class="sec-nav-btn next">القسم التالي: نظرية المسار والهدف ⬅</a>
+      </div>
+    </article>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 6: PATH-GOAL THEORY -->
+    <!-- ===================================================================== -->
+    <article class="theory-section" id="sec-path-goal">
+      <div class="section-header">
+        <div class="section-title-group">
+          <div class="section-badge-num">6</div>
+          <div>
+            <h2>نظرية المسار والهدف</h2>
+            <span class="section-en">Path-Goal Theory • تندرج تحت النظرية الموقفية</span>
+          </div>
+        </div>
+        <span class="page-tag">📖 صفحات الكتاب: 75 – 77</span>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">مفهوم النظرية، نشأتها، ودور القائد (صفحتا 75 و76)</h3>
+        <p>
+          تندرج <strong>نظرية المسار والهدف</strong> ضمن نماذج القيادة الموقفية؛ وقد قامت على أفكار <strong>مارتن إيفان (Martin Evans)</strong> عام <strong>1970م</strong>، ثم طوّرها <strong>روبرت هاوس (Robert House)</strong> في العام التالي (1971م) (ص 75).
+        </p>
+        <p>
+          <strong>فكرتها الأساسية ودور القائد:</strong> تركز النظرية على مدى قدرة القائد في التأثير على مرؤوسيه من خلال <strong>التمييز بين أهداف المنظمة والأهداف الشخصية</strong> وتحفيزهم لإنجاز تلك الأهداف. ويتمثل دور القائد في <strong>توضيح الطرق والمسارات والأساليب</strong> التي توصّل العاملين إلى أهدافهم؛ وتتوقف فاعلية القائد على ما يُحدثه سلوكه ونمط قيادته من أثر إيجابي على <strong>رضا العاملين وتحفيزهم</strong> (ص 75–76).
+        </p>
+
+        <!-- SVG Diagram for Path-Goal -->
+        <div class="svg-box" aria-label="رسم توضيحي لنظرية المسار والهدف">
+          <svg width="680" height="120" viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg">
+            <rect x="490" y="25" width="170" height="68" rx="12" fill="#1b365d"/>
+            <text x="575" y="55" fill="#fff" font-size="14" font-weight="bold" text-anchor="middle">القائد وسلوكه</text>
+            <text x="575" y="76" fill="#cbd5e1" font-size="11.5" text-anchor="middle">(موجه/إنساني/مشارك/إنجاز)</text>
+            <line x1="490" y1="59" x2="438" y2="59" stroke="#0f766e" stroke-width="3"/>
+            <polygon points="438,52 424,59 438,66" fill="#0f766e"/>
+            <rect x="234" y="25" width="190" height="68" rx="12" fill="#e6f6f4" stroke="#0f766e" stroke-width="2"/>
+            <text x="329" y="53" fill="#1b365d" font-size="13.5" font-weight="bold" text-anchor="middle">توضيح المسار والمهمة</text>
+            <text x="329" y="75" fill="#0f766e" font-size="11.5" text-anchor="middle">ورفع رضا وتحفيز العاملين</text>
+            <line x1="234" y1="59" x2="182" y2="59" stroke="#d97706" stroke-width="3"/>
+            <polygon points="182,52 168,59 182,66" fill="#d97706"/>
+            <rect x="18" y="25" width="150" height="68" rx="12" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+            <text x="93" y="53" fill="#92400e" font-size="13.5" font-weight="bold" text-anchor="middle">تحقيق الأهداف</text>
+            <text x="93" y="75" fill="#b45309" font-size="11.5" text-anchor="middle">التنظيمية والشخصية</text>
+          </svg>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>توضح نظرية المسار والهدف (إيفان 1970 وهاوس 1971) أن مهمة القائد هي رسم المسار للعاملين وربط أهدافهم الشخصية بأهداف المنظمة بما يرفع رضاهم وتحفيزهم.</p></div>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">الأنماط القيادية الأربعة في نظرية المسار والهدف (صفحة 76)</h3>
+        <div class="callout-grid">
+          <div class="info-card">
+            <h4>1. نمط القيادة الموجهة</h4>
+            <p style="margin-bottom:0;">يحدد القائد التصرفات المتوقعة من المرؤوسين بإرشادهم وتوجيههم فيما ينبغي عليهم عمله، <strong>دون أن يشاركوه في إبداء الرأي</strong> بشأن هذه الأمور.</p>
+          </div>
+          <div class="info-card">
+            <h4>2. النمط الإنساني (المساند)</h4>
+            <p style="margin-bottom:0;">يتعامل القائد مع مرؤوسيه <strong>كأصدقاء</strong>، ويهتم بمشكلاتهم وحاجاتهم ومشاعرهم.</p>
+          </div>
+          <div class="info-card">
+            <h4>3. النمط المشارك</h4>
+            <p style="margin-bottom:0;">يقوم القائد بـ<strong>التشاور مع مرؤوسيه</strong>، وأخذ اقتراحاتهم وآرائهم قبل أن يتخذ أي قرار.</p>
+          </div>
+          <div class="info-card">
+            <h4>4. النمط المهتم بالإنجاز</h4>
+            <p style="margin-bottom:0;">يهتم القائد بتحديد <strong>أهداف طموحة</strong> لمرؤوسيه ويتوقع منهم بذل قصارى جهدهم وإظهار أفضل ما لديهم، ويُبيّن لهم ثقته في قدرتهم على الوصول لتلك الأهداف.</p>
+          </div>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>تعتمد النظرية على 4 أنماط قيادية: الموجهة (تعليمات دون مشورة)، الإنساني (صداقة ومراعاة مشاعر)، المشارك (التشاور قبل القرار)، والمهتم بالإنجاز (أهداف طموحة وثقة عالية).</p></div>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">مسلمات النظرية، عناصرها، وأوجه القصور فيها (صفحتا 76 و77)</h3>
+        <div class="callout-grid">
+          <div class="info-card gold">
+            <h4>📌 مسلمات نظرية المسار والهدف (ص 76)</h4>
+            <ol class="styled-list num-list">
+              <li><strong>أفضل أداء للقائد يعتمد على عدد من العوامل الموقفية.</strong></li>
+              <li><strong>القيادة هي نتيجة مباشرة للتفاعل بين الناس في مواقف معينة.</strong></li>
+              <li><strong>مقدرة القائد على القيادة مشروطة بعدة عناصر موقفية.</strong></li>
+            </ol>
+            <p style="margin-top:10px; margin-bottom:0;"><strong>العنصران الأساسيان (ص 77):</strong> (1) عنصر المرؤوسين (يعتبرون القائد مصدر رضاهم وإشباع حاجاتهم)، و(2) عنصر المهمة (يتولى القائد توضيحها بالشكل الذي يساعدهم على الوصول إلى الهدف).</p>
+          </div>
+          <div class="info-card rose">
+            <h4>⚠️ أوجه القصور في نظرية هاوس (ص 77)</h4>
+            <ul class="styled-list rose-dots">
+              <li>اهتم النموذج بمفهوم <strong>الدافعية فقط</strong> كأساس لزيادة الجهد والأداء وأهمل الطرق الأخرى للتأثير.</li>
+              <li>اعتماده على مفاهيم <strong>نظرية التوقع</strong> في الدافعية (تركيزه على استخدام القائد للمنافع والتوقعات).</li>
+              <li>لم يحدد النموذج <strong>خصائص المرؤوسين وخصائص بيئة العمل</strong>.</li>
+              <li>لم يتضمن المتغيرات التي يمكن أن تؤثر على <strong>إدراك وتصورات المرؤوسين</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>تقوم المسار والهدف على 3 مسلمات موقفية وعنصرَي المرؤوسين والمهمة، لكنها انتُقدت لتركيزها على الدافعية والتوقع فقط وإغفالها خصائص المرؤوسين وبيئة العمل وإدراكاتهم.</p></div>
+      </div>
+
+      <!-- 5 Pedagogical Blocks -->
+      <div class="pedagogy-wrapper">
+        <div class="ped-box ped-summary">
+          <h3>📝 الخلاصة</h3>
+          <p>تركز نظرية المسار والهدف (إيفان 1970 وهاوس 1971) على دور القائد في تمهيد الطريق وتوضيح المسارات للعاملين لربط أهدافهم الشخصية بأهداف المنظمة، باستخدام أربعة أنماط: الموجه، الإنساني، المشارك، والمهتم بالإنجاز.</p>
+        </div>
+        <div class="ped-box ped-memorize">
+          <h3>🎯 للحفظ</h3>
+          <ul class="styled-list">
+            <li>المؤسسان: <strong>مارتن إيفان (1970)</strong> وطوّرها <strong>روبرت هاوس (1971)</strong>.</li>
+            <li>الأنماط الأربعة (ص 76): <strong>الموجهة – الإنساني – المشارك – المهتم بالإنجاز</strong>.</li>
+            <li>المسلمات الثلاث (ص 76): أفضل أداء يعتمد على عوامل موقفية، القيادة نتيجة تفاعل في مواقف معينة، مقدرة القائد مشروطة بعناصر موقفية.</li>
+            <li>العنصران (ص 77): <strong>المرؤوسون</strong> و<strong>المهمة</strong>.</li>
+          </ul>
+        </div>
+        <div class="ped-box ped-diff">
+          <h3>⚖️ افهم الفرق</h3>
+          <p><strong>نموذج فيدلر مقابل المسار والهدف:</strong> فيدلر يركز على <em>تطابق أسلوب القائد مع 3 متغيرات موقفية</em> (العلاقة، الهيكلة، القوة)، بينما المسار والهدف تركز على <em>توضيح طريق الإنجاز وتحفيز المرؤوسين</em> وربط أهدافهم الشخصية بأهداف المؤسسة.</p>
+        </div>
+        <div class="ped-box ped-example">
+          <h3>💼 مثال تطبيقي <span class="example-tag">مثال توضيحي مضاف للشرح</span></h3>
+          <p>مدير مبيعات يلاحظ أن فريقه لديه خبرة عالية لكنه يفتقد التحدي؛ فيستخدم <strong>النمط المهتم بالإنجاز</strong> بوضع هدف طموح لرفع المبيعات 25%، ويوضح لهم المسار (خطة استقطاب عملاء جدد) ويربط نجاحهم بحافز ترقية يلبي أهدافهم الشخصية، معبّراً عن ثقته التامة بقدرتهم على تحقيقه.</p>
+        </div>
+        <div class="ped-box ped-check full-span" data-mini-quiz>
+          <h3>❓ اختبر نفسك</h3>
+          <p class="mini-q-text">أي نمط من أنماط نظرية المسار والهدف يتعامل فيه القائد مع مرؤوسيه كأصدقاء ويهتم بمشكلاتهم ومشاعرهم؟</p>
+          <div class="mini-options">
+            <button type="button" class="mini-opt-btn" data-correct="false">نمط القيادة الموجهة</button>
+            <button type="button" class="mini-opt-btn" data-correct="true">النمط الإنساني (المساند)</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">النمط المشارك</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">النمط المهتم بالإنجاز</button>
+          </div>
+          <div class="mini-feedback" data-ok="إجابة صحيحة! النمط الإنساني (المساند) هو الذي يتعامل فيه القائد مع مرؤوسيه كأصدقاء ويهتم بحاجاتهم ومشاعرهم (ص 76)." data-err="غير صحيح. الإجابة الصحيحة هي النمط الإنساني (المساند) كما ورد في صفحة 76."></div>
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <a href="#sec-situational" class="sec-nav-btn">➡ القسم السابق: النظرية الموقفية وفيدلر</a>
+        <a href="#sec-interactive" class="sec-nav-btn next">القسم التالي: النظرية التفاعلية ⬅</a>
+      </div>
+    </article>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 7: INTERACTIVE THEORY -->
+    <!-- ===================================================================== -->
+    <article class="theory-section" id="sec-interactive">
+      <div class="section-header">
+        <div class="section-title-group">
+          <div class="section-badge-num">7</div>
+          <div>
+            <h2>النظرية التفاعلية في القيادة</h2>
+            <span class="section-en">Interaction / Interactive Leadership Theory</span>
+          </div>
+        </div>
+        <span class="page-tag">📖 صفحات الكتاب: 61–63 و 70–71</span>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">مفهوم النظرية التفاعلية وأبعادها الثلاثة (ص 61–62، ص 70)</h3>
+        <p>
+          جاءت <strong>النظرية التفاعلية</strong> لتركز على <strong>الجمع بين نظريتين سابقتين: نظرية السمات ونظرية الموقف</strong> (ص 61). فهي تعتبر القيادة <strong>عملية تفاعل اجتماعي</strong> لا تعتمد فقط على ما يمتلكه القائد من سمات (كالذكاء وسرعة البديهة والحزم والمهارة الإدارية والفنية)، بل لا بد من <strong>اقتناع الجماعة</strong> بهذه السمات، وقدرة القائد على التعامل مع أفراد الجماعة وإحداث التفاعل والتكامل في سلوك معظم أعضائها مع مراعاة آمالهم وقيمهم وتطلعاتهم (ص 61–62، 70). وتُعد هذه النظرية أكثر واقعية وإيجابية في تحليلها لخصائص القيادة الإدارية.
+        </p>
+
+        <!-- SVG 3 Dimensions -->
+        <div class="svg-box" aria-label="الأبعاد الثلاثة للنظرية التفاعلية">
+          <svg width="640" height="165" viewBox="0 0 640 165" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="215" cy="85" r="62" fill="rgba(27,54,93,0.12)" stroke="#1b365d" stroke-width="2.2"/>
+            <text x="192" y="80" fill="#1b365d" font-size="13.5" font-weight="bold" text-anchor="middle">السمات الشخصية</text>
+            <text x="192" y="100" fill="#1b365d" font-size="13" font-weight="bold" text-anchor="middle">للقائد</text>
+            <circle cx="320" cy="70" r="62" fill="rgba(15,118,110,0.14)" stroke="#0f766e" stroke-width="2.2"/>
+            <text x="320" y="58" fill="#0f766e" font-size="13.5" font-weight="bold" text-anchor="middle">عناصر الموقف</text>
+            <text x="320" y="78" fill="#0f766e" font-size="12" text-anchor="middle">(الظروف والمهام)</text>
+            <circle cx="425" cy="85" r="62" fill="rgba(67,56,202,0.12)" stroke="#4338ca" stroke-width="2.2"/>
+            <text x="448" y="80" fill="#4338ca" font-size="13" font-weight="bold" text-anchor="middle">خصائص الجماعة</text>
+            <text x="448" y="100" fill="#4338ca" font-size="12.5" font-weight="bold" text-anchor="middle">والمنظمة</text>
+            <rect x="242" y="132" width="156" height="26" rx="13" fill="#1b365d"/>
+            <text x="320" y="149" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">التفاعل الاجتماعي الناجح</text>
+          </svg>
+        </div>
+
+        <div class="info-card">
+          <h4>🔺 الأبعاد الثلاثة التي تتحدد على أساسها خصائص القيادة (ص 62 و ص 70)</h4>
+          <ol class="styled-list num-list">
+            <li><strong>السمات الشخصية للقائد</strong> (القائد).</li>
+            <li><strong>عناصر الموقف</strong> (الموقف والمهام المحددة).</li>
+            <li><strong>متطلبات وخصائص المنظمة/الجماعة المراد قيادتها</strong> (الجماعة).</li>
+          </ol>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>تدمج النظرية التفاعلية بين السمات والموقف لتجعل القيادة عملية تفاعل اجتماعي تحكمها 3 أبعاد مترابطة: القائد (سماته)، والموقف (عناصره)، والجماعة/المنظمة (خصائصها).</p></div>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">دور القائد، دور الموظفين، وطبيعة العلاقة التبادلية (ص 62–63، 70–71)</h3>
+        <div class="callout-grid">
+          <div class="info-card indigo">
+            <h4>👨‍💼 دور القائد التفاعلي</h4>
+            <ul class="styled-list">
+              <li><strong>استباقي</strong> في البحث عن المعلومات والآراء من أعضاء الفريق، ويُطلع الموظفين على الأمور المهمة المتعلقة بأهدافهم ومهامهم وتوضيح الفهم (ص 62).</li>
+              <li>يتعرف على <strong>مشكلات الجماعة ومتطلباتها</strong> ويعمل على حلها وتحقيقها (ص 62).</li>
+              <li>قادر على التفاعل مع خصائص المجتمع الذي يعيش فيه، ويستجيب لروح السياسة العامة ويعمل على تحقيق الأهداف الاجتماعية والاقتصادية (ص 70).</li>
+            </ul>
+          </div>
+          <div class="info-card emerald">
+            <h4>👥 دور الموظفين (الجماعة العاملة)</h4>
+            <ul class="styled-list">
+              <li>الجماعة العاملة هي <strong>مرتكز هذه النظرية</strong>، وتحقق البيئة القيادية الناجحة عند تلبية رغباتهم واحتياجاتهم (ص 70).</li>
+              <li>يمثل المرؤوسون عاملاً مهماً في <strong>تحديد الصلاحية للقيادة</strong>؛ إذ يتوقف انتخاب وتقبّل القائد على إدراك الأعضاء له كأصلح شخص للقيام بمطالب الدور الجماعي، وتتغير هذه الصلاحية من موقف لآخر (ص 70–71).</li>
+            </ul>
+          </div>
+        </div>
+        <p>
+          <strong>طبيعة العلاقة والتأثير المتبادل (ص 63 و ص 71):</strong> القيادة وفق هذه النظرية <strong>«تعمل مع الأفراد ومن خلالهم، وليس من خلال السيطرة عليهم والتحكم فيهم»</strong>، وتعطي أهمية كبيرة لـ<strong>إدراك القائد لنفسه وإدراك الآخرين له</strong>، مما يبني التزام الموظفين بتحقيق أهداف الفريق والمنظمة.
+        </p>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>القائد التفاعلي استباقي يوضح الأهداف ويحل مشكلات الجماعة، والمرؤوسون هم من يحددون صلاحيته للقيادة؛ فالعلاقة تقوم على العمل مع الأفراد ومن خلالهم لا بالسيطرة عليهم.</p></div>
+      </div>
+
+      <div class="sub-anchor">
+        <h3 class="sub-title">مسلمات النظرية التفاعلية (صفحات 62–63 و 71)</h3>
+        <div class="info-card gold">
+          <h4>📌 المسلمات العملية والاجتماعية للنظرية</h4>
+          <ul class="styled-list">
+            <li><strong>من الناحية العملية (ص 62–63):</strong> يتوجب على الإدارة تحرّي الكفاءة والجدارة في التعيينات للوظائف الإدارية، وتصميم الأعمال بشكل يساعد على تركيز اهتمام الموظف بما يجري وإتاحة المجال له لإظهار مواهبه والتفاعل مع المواقف، مما يؤدي لنجاحه واكتسابه القدرة على التأثير وتعبئة الجهد لصالح التنظيم ككل.</li>
+            <li><strong>مسلمات التفاعل الاجتماعي (ص 71):</strong> تقوم على أن القيادة عملية تفاعل اجتماعي تتحدد خصائصها وفق الأبعاد الثلاثة:
+              <br>1. بالقدر الذي يكون فيه التفاعل ناجحاً بين الأبعاد السابقة (القائد، الموقف، الجماعة).
+              <br>2. بالقدر الذي يكون النجاح فيه حليف القائد.
+              <br>3. وإلا <strong>فالتفاعل الضعيف يعني ضعف القيادة</strong>.
+            </li>
+          </ul>
+        </div>
+      
+        <div class="para-summary"><span class="para-summary-badge">⚡ ملخص الفقرة</span><p>عملياً تتطلب النظرية تحرّي الجدارة وتصميم أعمال تبرز مواهب العاملين، واجتماعياً ترتبط فاعلية القيادة طردياً بقوة التفاعل بين الأبعاد الثلاثة؛ فالتفاعل الضعيف يعني ضعف القيادة.</p></div>
+      </div>
+
+      <!-- 5 Pedagogical Blocks -->
+      <div class="pedagogy-wrapper">
+        <div class="ped-box ped-summary">
+          <h3>📝 الخلاصة</h3>
+          <p>تدمج النظرية التفاعلية بين السمات والموقف والجماعة، وتعتبر القيادة عملية تفاعل اجتماعي متبادل تعمل مع الأفراد ومن خلالهم لا بالسيطرة عليهم؛ فكلما قوي التفاعل بين الأبعاد الثلاثة نجحت القيادة، وضعف التفاعل يعني ضعف القيادة.</p>
+        </div>
+        <div class="ped-box ped-memorize">
+          <h3>🎯 للحفظ</h3>
+          <ul class="styled-list">
+            <li>تجمع بين: <strong>نظرية السمات + نظرية الموقف</strong> (ص 61).</li>
+            <li>الأبعاد الثلاثة: <strong>القائد (سماته) – الموقف (عناصره) – الجماعة/المنظمة (خصائصها ومتطلباتها)</strong>.</li>
+            <li>قاعدة العلاقة (ص 63، 71): <strong>تعمل مع الأفراد ومن خلالهم وليس من خلال السيطرة والتحكم</strong>.</li>
+            <li>معيار النجاح (ص 71): التفاعل الناجح = نجاح القائد، والتفاعل الضعيف = ضعف القيادة.</li>
+          </ul>
+        </div>
+        <div class="ped-box ped-diff">
+          <h3>⚖️ افهم الفرق</h3>
+          <p><strong>النظريات الكلاسيكية مقابل التفاعلية (ص 71):</strong> الكلاسيكية أغفلت العلاقات الإنسانية والتنظيمات غير الرسمية وركّزت على الحوافز المادية فقط، بينما التفاعلية تضع الجماعة ومشاعرها واتجاهاتها وتفاعلها في قلب عملية القيادة.</p>
+        </div>
+        <div class="ped-box ped-example">
+          <h3>💼 مثال تطبيقي <span class="example-tag">مثال توضيحي مضاف للشرح</span></h3>
+          <p>مدير مدرسة جديد يمتلك كفاءة إدارية عالية، لكنه بدلاً من فرض قراراته من اليوم الأول، يبادر بالاجتماع مع المعلمين لمعرفة مشكلاتهم وتطلعاتهم، ويوضّح لهم الأهداف التربوية بشفافية ويصمّم لجاناً تتيح لكل معلم إبراز مواهبه؛ فيقتنع المعلمون بقيادته ويتحقق تكامل جماعي مثمر.</p>
+        </div>
+        <div class="ped-box ped-check full-span" data-mini-quiz>
+          <h3>❓ اختبر نفسك</h3>
+          <p class="mini-q-text">تجمع النظرية التفاعلية في صفحة 61 بين أي نظريتين سابقتين؟</p>
+          <div class="mini-options">
+            <button type="button" class="mini-opt-btn" data-correct="false">نظرية الرجل العظيم ونظرية X</button>
+            <button type="button" class="mini-opt-btn" data-correct="true">نظرية السمات ونظرية الموقف</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">النظرية السلوكية ونظرية المسار والهدف</button>
+            <button type="button" class="mini-opt-btn" data-correct="false">نظرية X ونظرية Y فقط</button>
+          </div>
+          <div class="mini-feedback" data-ok="صحيح! تنص صفحة 61 على أن النظرية التفاعلية تركز على الجمع بين نظرية السمات ونظرية الموقف." data-err="غير صحيح. تجمع النظرية التفاعلية بين نظرية السمات ونظرية الموقف (صفحة 61)."></div>
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <a href="#sec-path-goal" class="sec-nav-btn">➡ القسم السابق: نظرية المسار والهدف</a>
+        <a href="#toc" class="sec-nav-btn">⬆ العودة إلى الفهرس</a>
+      </div>
+    </article>
+
+    <!-- ===================================================================== -->
+    <!-- FINAL QUIZ CTA BANNER -->
+    <!-- ===================================================================== -->
+    <section class="quiz-cta-banner" id="quiz-cta">
+      <h2>🎓 هل أنت مستعد لاختبار فهمك للوحدة الثانية؟</h2>
+      <p>
+        اختبار جامعي متكامل مكوّن من <strong>30 سؤالاً</strong> اختيار من متعدد: <strong>15 سؤالاً حفظياً</strong> للتعريفات والمسلمات والسمات، و<strong>15 سؤالاً تطبيقياً</strong> لمواقف وسيناريوهات قيادية، مع تصحيح فوري وتفسير لكل إجابة وإعادة ترتيب عشوائي عند الإعادة.
+      </p>
+      <button type="button" class="start-quiz-btn" id="startQuizBtn">
+        <span>📝</span>
+        <span>ابدأ الاختبار النهائي – 30 سؤالاً</span>
+      </button>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- INTERACTIVE FINAL QUIZ SECTION (30 QUESTIONS) -->
+    <!-- ===================================================================== -->
+    <section class="quiz-section" id="quizSection" aria-labelledby="quiz-heading">
+      <div class="section-header">
+        <div class="section-title-group">
+          <div class="section-badge-num">30</div>
+          <div>
+            <h2 id="quiz-heading">الاختبار النهائي التفاعلي – الوحدة الثانية</h2>
+            <span class="section-en">15 سؤالاً حفظياً + 15 سؤالاً تطبيقياً • لا يمكن تغيير الإجابة بعد اعتمادها</span>
+          </div>
+        </div>
+        <button type="button" class="sec-nav-btn" id="restartTopBtn">🔄 إعادة الاختبار بترتيب عشوائي</button>
+      </div>
+
+      <!-- Sticky Progress Bar -->
+      <div class="quiz-sticky-bar">
+        <div class="quiz-progress-top">
+          <span id="progressText">تمت الإجابة على 0 من 30 سؤالاً</span>
+          <span id="liveScoreText">النتيجة الحالية: 0 / 30</span>
+        </div>
+        <div class="quiz-progress-track">
+          <div class="quiz-progress-fill" id="quizProgressFill"></div>
+        </div>
+      </div>
+
+      <!-- Questions Container -->
+      <div id="questionsContainer"></div>
+
+      <!-- Final Result Summary Card -->
+      <div class="results-card" id="resultsCard" aria-live="polite">
+        <h2 style="margin-bottom: 16px;">🎉 نتيجة الاختبار النهائي</h2>
+        <div class="score-circle">
+          <span class="big-score" id="finalScoreNum">0 / 30</span>
+          <span class="small-sub" id="finalPercent">0%</span>
+        </div>
+        <div class="level-badge" id="studentLevel">التقييم</div>
+        <p id="levelMessage" style="color: rgba(255,255,255,0.92); max-width: 600px; margin: 0 auto 14px;"></p>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="val" id="statCorrect">0</span>
+            <span class="lbl">الإجابات الصحيحة</span>
+          </div>
+          <div class="stat-box">
+            <span class="val" id="statWrong">0</span>
+            <span class="lbl">الإجابات الخاطئة</span>
+          </div>
+          <div class="stat-box">
+            <span class="val" id="statMem">0 / 15</span>
+            <span class="lbl">الأسئلة الحفظية</span>
+          </div>
+          <div class="stat-box">
+            <span class="val" id="statApp">0 / 15</span>
+            <span class="lbl">الأسئلة التطبيقية</span>
+          </div>
+        </div>
+
+        <button type="button" class="restart-btn" id="restartBottomBtn">
+          <span>🔄</span>
+          <span>إعادة الاختبار (ترتيب عشوائي جديد)</span>
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================== -->
+    <!-- SECTION: الزبدة (رؤوس أقلام شاملة لكل موضوعات الوحدة الثانية) -->
+    <!-- ===================================================================== -->
+    <section class="zubda-section" id="sec-zubda" aria-labelledby="zubda-heading">
+      <div class="zubda-header">
+        <div>
+          <h2 id="zubda-heading">⚡ الزبدة — رؤوس أقلام سريعة للمراجعة النهائية</h2>
+          <p style="margin: 4px 0 0; color: #78350f; font-size: 0.94rem;">
+            كل ما تحتاجه لتثبيت الوحدة الثانية قبل الامتحان في نقاط مختصرة ومنظمة حسب صفحات الكتاب.
+          </p>
+        </div>
+        <a href="#toc" class="sec-nav-btn">⬆ العودة إلى الفهرس</a>
+      </div>
+
+      <div class="zubda-grid">
+        <!-- 1 -->
+        <div class="zubda-card">
+          <h3>1. نظرية الرجل العظيم <span>ص 52–56</span></h3>
+          <ul class="zubda-list">
+            <li>تنبثق من <strong>المدرسة التقليدية (الكلاسيكية)</strong> وسُمّيت <strong>الأب الشرعي للقيادة</strong>.</li>
+            <li>الفكرة: <strong>القائد يُولد ولا يُصنع</strong> بصفات وراثية ثابتة (أرستقراطية) تصلح لكل موقف.</li>
+            <li>روّادها: <strong>جالتون</strong>، و<strong>توماس كارليل</strong> (القرن 19).</li>
+            <li><strong>المسلمات (4):</strong> يُولدون لا يُصنعون • معهم موهبة القيادة • ينهضون عند الحاجة • يمتلكون السمات الصحيحة.</li>
+            <li><strong>المآخذ (ص 55):</strong> تدرس القادة بعد عظمتهم • لا تتنبأ • تصطدم بحالات عجز • لا تعتمد المعطيات العلمية.</li>
+            <li><strong>التحديات الثلاثة (ص 56):</strong> العنصرية • تجاهل قيمة التدريب • تجاهل العوامل البيئية.</li>
+          </ul>
+        </div>
+
+        <!-- 2 -->
+        <div class="zubda-card">
+          <h3>2. نظرية السمات القيادية <span>ص 56–61</span></h3>
+          <ul class="zubda-list">
+            <li>تطور طبيعي لنظرية الوراثة؛ جذورها عند <strong>أفلاطون</strong> (الذكاء والمعرفة).</li>
+            <li><strong>المهارات المكتسبة (ص 58–59):</strong> الفنية (الأشياء) • الإنسانية (الأفراد) • الذهنية (الإدارية + السياسية).</li>
+            <li><strong>تصنيفات السمات الست (ص 59–60):</strong> الجسمية • العقلية المعرفية (ذكاء أعلى بمتوسط 20%؛ زيادته المفرطة تصعّب التفاهم) • المرتبطة بالأداء (دافعية، مسؤولية، مبادأة، مثابرة) • الانفعالية (ثبات، نضج، ضبط نفس) • الاجتماعية (تعاون، مرح، لمّ الشمل) • العامة (أمانة، وقت، تواضع، مظهر).</li>
+            <li><strong>السلبيات الخمس (ص 61):</strong> استبدادية • تشتّت +500 مقياس • بعيدة عن الواقع • بلا أوزان أو مستويات • أهملت الموقف والمرؤوسين.</li>
+          </ul>
+        </div>
+
+        <!-- 3 -->
+        <div class="zubda-card">
+          <h3>3. النظرية السلوكية <span>ص 63–64</span></h3>
+          <ul class="zubda-list">
+            <li>ظهرت بعد فشل السمات لتحوّل البحث إلى <strong>السلوك الخارجي</strong>.</li>
+            <li>تدرس سؤالين: <strong>ما يفعله القادة في الواقع؟</strong> و<strong>كيف يفعلونه؟</strong></li>
+            <li>الفرضية الأساسية: نجاح القائد يتوقف على <strong>النمط القيادي</strong> الذي يمارسه.</li>
+            <li>المقولة الجوهرية: <strong>القادة يُصنعون ولا يُولدون</strong> (سلوك يمكن تعلّمه).</li>
+            <li><strong>محورا السلوك (ص 64):</strong> التركيز على العمل (X / علمية) • الاهتمام بالموظفين (Y / علاقات إنسانية).</li>
+          </ul>
+        </div>
+
+        <!-- 4 -->
+        <div class="zubda-card">
+          <h3>4. نظرية X و Y (ماكجريجور) <span>ص 64–68</span></h3>
+          <ul class="zubda-list">
+            <li><strong>نظرية X (تشاؤمية تسلطية):</strong> يكره العمل • يفتقر للابتكار • يؤدي الحد الأدنى • غير طموح ويحتاج رقابة لصيقة • تحفيز <strong>مادي</strong> (فسيولوجية وأمان) • إشراف مباشر وضغط بالقوة (الجزرة والعصا).</li>
+            <li><strong>نظرية Y (تفاؤلية ديمقراطية):</strong> العمل طبيعي كاللعب • الابتكار موزع طبيعياً • يبذل أقصى جهد • رقابة ذاتية وجدير بالثقة • تحفيز <strong>معنوي</strong> (انتماء وتقدير وتحقيق ذات) • توجيه ذاتي وتكامل.</li>
+            <li><strong>الانتقاد (ص 68):</strong> الموظفون يحملون خواصاً من النظريتين معاً لا واحدة فقط.</li>
+          </ul>
+        </div>
+
+        <!-- 5 -->
+        <div class="zubda-card">
+          <h3>5. النظرية الموقفية وفيدلر <span>ص 71–75</span></h3>
+          <ul class="zubda-list">
+            <li>لا يوجد أسلوب واحد لكل المواقف؛ الفاعلية تتحدد بـ<strong>تطابق الأسلوب مع الموقف</strong>.</li>
+            <li><strong>نموذج فيدلر (إلينوي 1967) – 3 متغيرات (ص 73):</strong> علاقة القائد بمرؤوسيه • هيكلة الوظيفة (وضوح المهام) • قوة موقع القيادة (قوة الخبرة + القوة الرسمية: الإثابة والعقاب).</li>
+            <li><strong>جدول الأساليب الأربعة (ص 74–75):</strong>
+              <strong>الإخباري</strong> (غير جاهز: توجيه عالٍ/مساندة منخفضة) •
+              <strong>التدريبي</strong> (تعلّم ولا يقدر وحده: توجيه عالٍ/مساندة عالية، اتصال ثنائي) •
+              <strong>المساند</strong> (واثق ويحتاج دعماً: مساندة عالية/توجيه منخفض) •
+              <strong>التفويضي</strong> (ناضج ومحفّز: مساندة منخفضة/توجيه منخفض).
+            </li>
+          </ul>
+        </div>
+
+        <!-- 6 -->
+        <div class="zubda-card">
+          <h3>6. نظرية المسار والهدف <span>ص 75–77</span></h3>
+          <ul class="zubda-list">
+            <li>أسسها <strong>مارتن إيفان (1970)</strong> وطوّرها <strong>روبرت هاوس (1971)</strong>.</li>
+            <li>دور القائد: <strong>توضيح المسار والمهمة</strong> وربط الأهداف الشخصية بأهداف المنظمة لرفع الرضا والتحفيز.</li>
+            <li><strong>الأنماط الأربعة (ص 76):</strong> القيادة الموجهة • الإنساني (المساند) • المشارك • المهتم بالإنجاز.</li>
+            <li><strong>المسلمات الثلاث (ص 76):</strong> أفضل أداء يعتمد على عوامل موقفية • القيادة نتيجة تفاعل في مواقف معينة • مقدرة القائد مشروطة بعناصر موقفية.</li>
+            <li><strong>العنصران (ص 77):</strong> المرؤوسون + المهمة. <strong>القصور:</strong> اقتصرت على الدافعية والتوقع وأهملت خصائص المرؤوسين والبيئة.</li>
+          </ul>
+        </div>
+
+        <!-- 7 -->
+        <div class="zubda-card">
+          <h3>7. النظرية التفاعلية <span>ص 61–63 و 70–71</span></h3>
+          <ul class="zubda-list">
+            <li>تجمع بين <strong>نظرية السمات + نظرية الموقف</strong>، وتعتبر القيادة <strong>عملية تفاعل اجتماعي</strong>.</li>
+            <li><strong>الأبعاد الثلاثة:</strong> سمات القائد • عناصر الموقف • خصائص ومتطلبات الجماعة والمنظمة.</li>
+            <li><strong>قاعدة العلاقة:</strong> القيادة تعمل <strong>مع الأفراد ومن خلالهم</strong> لا بالسيطرة والتحكم.</li>
+            <li><strong>دور الموظفين:</strong> الجماعة مرتكز النظرية، وإدراك الأعضاء يحدد صلاحية القائد.</li>
+            <li><strong>المسلمة الحاكمة (ص 71):</strong> التفاعل الناجح بين الأبعاد = نجاح القائد، والتفاعل الضعيف = ضعف القيادة.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      المصدر العلمي الحصري: كتاب «القيادة والمسؤولية المجتمعية» – أ.د. أحمد سليمان العبيدات (الوحدة الثانية: نظريات القيادة، صفحات 52–77).
+    </footer>
+  </main>
+
+  <!-- Floating Back to TOC Button -->
+  <button type="button" class="fab-top" id="fabTop" aria-label="العودة إلى الفهرس">⬆ الفهرس</button>
+
+  <!-- Fixed Mobile App Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav" aria-label="التنقل السفلي للهاتف">
+    <a href="#toc" class="bottom-nav-item">
+      <span class="b-icon">📑</span>
+      <span>الفهرس</span>
+    </a>
+    <a href="#sec-great-man" class="bottom-nav-item">
+      <span class="b-icon">📖</span>
+      <span>الدروس</span>
+    </a>
+    <a href="#sec-xy" class="bottom-nav-item">
+      <span class="b-icon">📊</span>
+      <span>الجداول</span>
+    </a>
+    <button type="button" class="bottom-nav-item quiz-tab" id="bottomQuizBtn">
+      <span class="b-icon">📝</span>
+      <span>الاختبار</span>
+    </button>
+    <a href="#sec-zubda" class="bottom-nav-item zubda-tab">
+      <span class="b-icon">⚡</span>
+      <span>الزبدة</span>
+    </a>
+  </nav>
+
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* ===================================================================
+         1. READING PROGRESS BAR & FLOATING BACK-TO-TOC BUTTON
+      =================================================================== */
+      const readProgress = document.getElementById("readProgress");
+      const fabTop = document.getElementById("fabTop");
+
+      function onScroll() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+        readProgress.style.width = pct + "%";
+
+        if (scrollTop > 420) {
+          fabTop.classList.add("visible");
+        } else {
+          fabTop.classList.remove("visible");
+        }
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      fabTop.addEventListener("click", function () {
+        document.getElementById("toc").scrollIntoView({ behavior: "smooth" });
+      });
+
+      /* ===================================================================
+         2. MINI SELF-CHECK QUIZZES INSIDE EACH SECTION
+      =================================================================== */
+      document.querySelectorAll("[data-mini-quiz]").forEach(function (box) {
+        const buttons = box.querySelectorAll(".mini-opt-btn");
+        const feedback = box.querySelector(".mini-feedback");
+        let answered = false;
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            if (answered) return;
+            answered = true;
+            const isCorrect = btn.getAttribute("data-correct") === "true";
+
+            buttons.forEach(function (b) {
+              b.disabled = true;
+              if (b.getAttribute("data-correct") === "true") {
+                b.classList.add("correct");
+              }
+            });
+
+            if (isCorrect) {
+              feedback.textContent = "✅ " + feedback.getAttribute("data-ok");
+              feedback.className = "mini-feedback show ok";
+            } else {
+              btn.classList.add("wrong");
+              feedback.textContent = "❌ " + feedback.getAttribute("data-err");
+              feedback.className = "mini-feedback show err";
+            }
+          });
+        });
+      });
+
+      /* ===================================================================
+         3. FINAL INTERACTIVE QUIZ BANK (30 QUESTIONS: 15 MEM + 15 APP)
+         Strictly grounded in Unit 2 (Book Pages 52–77)
+      =================================================================== */
+      const QUESTION_BANK = [
+        // --- 15 MEMORIZATION / CONCEPTUAL QUESTIONS (type: 'mem') ---
+        {
+          id: 1,
+          type: "mem",
+          topic: "نظرية الرجل العظيم",
+          question: "إلى أي مدرسة فكرية تنتمي نظرية الرجل العظيم، وبماذا لقّبها بعض الباحثين وفق الكتاب (ص 52–53)؟",
+          options: [
+            "المدرسة التقليدية (الكلاسيكية)، ولُقّبت بالأب الشرعي للقيادة",
+            "المدرسة السلوكية، ولُقّبت بنظرية العلاقات الإنسانية",
+            "المدرسة الموقفية، ولُقّبت بنظرية التطابق البيئي",
+            "المدرسة التفاعلية، ولُقّبت بنظرية التكامل الاجتماعي"
+          ],
+          correctText: "المدرسة التقليدية (الكلاسيكية)، ولُقّبت بالأب الشرعي للقيادة",
+          explanation: "تنتمي نظرية الرجل العظيم إلى المدرسة التقليدية (الكلاسيكية) ص 52، وأطلق عليها البعض الأب الشرعي للقيادة ص 53."
+        },
+        {
+          id: 2,
+          type: "mem",
+          topic: "نظرية الرجل العظيم",
+          question: "من الفيلسوف الذي قدّم نظرية الرجل العظيم في القرن التاسع عشر مؤكداً أنه لا يمكن للفرد أن يكون قائداً دون سمات خاصة تميّزه عن غيره (ص 54)؟",
+          options: [
+            "توماس كارليل",
+            "دوجلاس ماكجريجور",
+            "روبرت هاوس",
+            "فريد فيدلر"
+          ],
+          correctText: "توماس كارليل",
+          explanation: "قدّم الفيلسوف توماس كارليل نظرية الرجل العظيم في القرن التاسع عشر (صفحة 54)، وكان جالتون أيضاً من أوائل من دعوا إليها (ص 53)."
+        },
+        {
+          id: 3,
+          type: "mem",
+          topic: "نظرية الرجل العظيم",
+          question: "أيٌّ مما يلي ليس من مسلمات نظرية الرجل العظيم الأربع الواردة في صفحة 55؟",
+          options: [
+            "القيادة مهارة مكتسبة يتعلمها أي فرد بالتدريب المستمر",
+            "القادة يولدون ولا يُصنعون",
+            "القادة العظماء سينهضون عندما تظهر الحاجة لهم",
+            "القادة الجيدون هم الذين يمتلكون السمات الصحيحة"
+          ],
+          correctText: "القيادة مهارة مكتسبة يتعلمها أي فرد بالتدريب المستمر",
+          explanation: "تجاهلت نظرية الرجل العظيم التدريب تماماً؛ ومسلماتها الأربع في ص 55 تؤكد أن القادة يولدون ولا يُصنعون ومعهم موهبة القيادة."
+        },
+        {
+          id: 4,
+          type: "mem",
+          topic: "نظرية الرجل العظيم",
+          question: "ما الانتقادات والتحديات الثلاثة التي صُنّف تحتها الهجوم على نظرية الرجل العظيم في صفحة 56؟",
+          options: [
+            "العنصرية، تجاهل قيمة التدريب، وتجاهل العوامل البيئية",
+            "صعوبة القياس، كثرة الاستبيانات، وتجاهل الذكاء",
+            "التركيز على الدافعية، الاعتماد على التوقع، وإهمال التخطيط",
+            "المركزية المفرطة، غياب التخصص، وكثرة التفويض"
+          ],
+          correctText: "العنصرية، تجاهل قيمة التدريب، وتجاهل العوامل البيئية",
+          explanation: "صُنّفت الانتقادات والهجوم على نظرية الرجل العظيم في صفحة 56 إلى ثلاثة جوانب: العنصرية، تجاهل قيمة التدريب، وتجاهل العوامل البيئية."
+        },
+        {
+          id: 5,
+          type: "mem",
+          topic: "نظرية السمات القيادية",
+          question: "بموجب النهج الفلسفي المثالي عند أفلاطون في نظرية السمات (ص 56–57)، ما أهم السمات التي تخص القادة؟",
+          options: [
+            "الذكاء والمعرفة",
+            "ضخامة الجثة والطول والوزن فقط",
+            "القدرة على فرض العقوبات والمكافآت",
+            "الالتزام بالروتين والبيروقراطية"
+          ],
+          correctText: "الذكاء والمعرفة",
+          explanation: "يرى أفلاطون أن أهم السمات التي تخص القادة هي الذكاء والمعرفة؛ إذ تقول حكمة قدماء الإغريق: المعرفة فضيلة والجهل رذيلة (ص 57)."
+        },
+        {
+          id: 6,
+          type: "mem",
+          topic: "نظرية السمات القيادية",
+          question: "ما المهارة المكتسبة التي ينبثق منها نوعان هما «المهارة الإدارية» و«المهارة السياسية» وفق الكتاب (ص 58–59)؟",
+          options: [
+            "المهارة الذهنية",
+            "المهارة الفنية",
+            "المهارة الإنسانية",
+            "المهارة الجسمية"
+          ],
+          correctText: "المهارة الذهنية",
+          explanation: "تنقسم المهارة الذهنية في صفحتي 58 و59 إلى نوعين: المهارة الإدارية والمهارة السياسية."
+        },
+        {
+          id: 7,
+          type: "mem",
+          topic: "نظرية السمات القيادية",
+          question: "كم بلغ متوسط العلاقة الإيجابية بين الذكاء والسمات القيادية وفق الأبحاث المذكورة في صفحة 59؟",
+          options: [
+            "20%",
+            "50%",
+            "75%",
+            "5%"
+          ],
+          correctText: "20%",
+          explanation: "أشارت الأبحاث في صفحة 59 إلى أن للذكاء علاقة إيجابية ثابتة تقريباً بالسمات القيادية بمتوسط 20%."
+        },
+        {
+          id: 8,
+          type: "mem",
+          topic: "نظرية السمات القيادية",
+          question: "تندرج كل من «الدافعية للإنجاز، المسؤولية، المبادأة، والمثابرة» ضمن أي تصنيف للسمات في صفحة 59؟",
+          options: [
+            "سمات مرتبطة بالأداء",
+            "السمات الانفعالية",
+            "السمات العامة",
+            "السمات الاجتماعية"
+          ],
+          correctText: "سمات مرتبطة بالأداء",
+          explanation: "صنّف الكتاب في صفحة 59 الدافعية للإنجاز والمسؤولية والمبادأة والمثابرة تحت «سمات مرتبطة بالأداء»."
+        },
+        {
+          id: 9,
+          type: "mem",
+          topic: "نظرية السمات القيادية",
+          question: "كم مقياساً للشخصية اعتمدت عليه دراسات نظرية السمات مما أظهر تشتّتاً وصعوبة في اجتماع السمات بشخصية واحدة (ص 61)؟",
+          options: [
+            "أكثر من 500 مقياس للشخصية",
+            "50 مقياساً للشخصية فقط",
+            "120 مقياساً للشخصية",
+            "10 مقاييس موحدة عالمياً"
+          ],
+          correctText: "أكثر من 500 مقياس للشخصية",
+          explanation: "من سلبيات نظرية السمات في صفحة 61 أن الدراسات اعتمدت في قياسها على أكثر من (500) مقياس للشخصية وأساليب مختلفة."
+        },
+        {
+          id: 10,
+          type: "mem",
+          topic: "النظرية السلوكية",
+          question: "على أيّ جانبين حوّل باحثو النظرية السلوكية اهتمامهم بعد فشل نظرية السمات (ص 63)؟",
+          options: [
+            "ما يفعله القادة في الواقع، وكيف يفعلونه",
+            "المظهر الجسمي للقائد، ونسبه العائلي",
+            "عدد المقاييس النفسية، ومستوى الذكاء العام",
+            "التدرج الهرمي للسلطة، واللوائح القانونية فقط"
+          ],
+          correctText: "ما يفعله القادة في الواقع، وكيف يفعلونه",
+          explanation: "حوّل الباحثون اهتمامهم في النظرية السلوكية (ص 63) إلى دراسة سلوكيات القادة من حيث: ما يفعله القادة في الواقع، وكيف يفعلونه."
+        },
+        {
+          id: 11,
+          type: "mem",
+          topic: "نظرية X و Y",
+          question: "بحسب جدول مقارنة نظرية X ونظرية Y في صفحة 67، كيف تنظر نظرية (X) إلى حجم العمل لدى معظم الأفراد؟",
+          options: [
+            "يميلون إلى أداء الحد الأدنى من المطلوب إنجازه والذي يعفيهم من المساءلة",
+            "يحاولون بذل أقصى ما في وسعهم لأداء أكبر حجم ممكن من العمل",
+            "يؤدون العمل بشغف باعتباره مثله مثل اللعب",
+            "يبتكرون طرقاً جديدة لمضاعفة الإنتاجية ذاتياً"
+          ],
+          correctText: "يميلون إلى أداء الحد الأدنى من المطلوب إنجازه والذي يعفيهم من المساءلة",
+          explanation: "وفق جدول ص 67، تفترض نظرية (X) أن معظم الأفراد يميلون لأداء الحد الأدنى الذي يعفيهم من المساءلة عن عدم الإنجاز."
+        },
+        {
+          id: 12,
+          type: "mem",
+          topic: "النظرية الموقفية وفيدلر",
+          question: "ما المتغيرات الثلاثة الأساسية التي ركز عليها فيدلر في نموذجه الموقفي عام 1967 (صفحة 73)؟",
+          options: [
+            "علاقة القائد بمرؤوسيه، هيكلة الوظيفة، وقوة موقع القيادة",
+            "الذكاء، الطول والوزن، والانبساطية الاجتماعية",
+            "التخطيط، التنظيم، والرقابة المركزية",
+            "التحفيز المادي، التحفيز المعنوي، والتفويض"
+          ],
+          correctText: "علاقة القائد بمرؤوسيه، هيكلة الوظيفة، وقوة موقع القيادة",
+          explanation: "ركز فيدلر في نموذجه (ص 73) على ثلاثة متغيرات أساسية: علاقة القائد بمرؤوسيه، هيكلة الوظيفة، وقوة موقع القيادة."
+        },
+        {
+          id: 13,
+          type: "mem",
+          topic: "نظرية المسار والهدف",
+          question: "على أفكار من قامت نظرية المسار والهدف عام 1970م، ومن الذي طوّرها في العام التالي (ص 75)؟",
+          options: [
+            "قامت على أفكار مارتن إيفان، وطوّرها روبرت هاوس",
+            "قامت على أفكار توماس كارليل، وطوّرها جالتون",
+            "قامت على أفكار دوجلاس ماكجريجور، وطوّرها فيدلر",
+            "قامت على أفكار أفلاطون، وطوّرها روبرت هاوس"
+          ],
+          correctText: "قامت على أفكار مارتن إيفان، وطوّرها روبرت هاوس",
+          explanation: "قامت نظرية المسار والهدف على أفكار مارتن إيفان عام 1970م، ثم طوّرها روبرت هاوس في العام التالي (صفحة 75)."
+        },
+        {
+          id: 14,
+          type: "mem",
+          topic: "نظرية المسار والهدف",
+          question: "أيٌّ مما يلي يُعد من أوجه القصور في نظرية هاوس (المسار والهدف) كما ورد في صفحة 77؟",
+          options: [
+            "اهتمت بمفهوم الدافعية فقط كأساس لزيادة الجهد وأهملت الطرق الأخرى للتأثير",
+            "ركزت على الصفات الجسمية والوراثية للقائد",
+            "افترضت أن جميع الموظفين كسالى ويكرهون العمل",
+            "ألغت دور القائد في توضيح المهمة للمرؤوسين"
+          ],
+          correctText: "اهتمت بمفهوم الدافعية فقط كأساس لزيادة الجهد وأهملت الطرق الأخرى للتأثير",
+          explanation: "من أوجه القصور المذكورة في صفحة 77 أن النموذج اهتم بمفهوم الدافعية فقط، ولم يحدد خصائص المرؤوسين وبيئة العمل."
+        },
+        {
+          id: 15,
+          type: "mem",
+          topic: "النظرية التفاعلية",
+          question: "ما القاعدة التي تعبّر عن طبيعة العلاقة القيادية في النظرية التفاعلية وفق الكتاب (صفحتا 63 و71)؟",
+          options: [
+            "القيادة تعمل مع الأفراد ومن خلالهم، وليس من خلال السيطرة عليهم والتحكم فيهم",
+            "القيادة تعتمد على السيطرة المركزية وإصدار الأوامر دون مشورة",
+            "القيادة تنبع من المنصب الرسمي والوراثة الأرستقراطية فقط",
+            "القيادة تعتمد على التحفيز المادي كمحرك وحيد للسلوك"
+          ],
+          correctText: "القيادة تعمل مع الأفراد ومن خلالهم، وليس من خلال السيطرة عليهم والتحكم فيهم",
+          explanation: "يؤكد الكتاب في ص 63 و71 أن القيادة في النظرية التفاعلية تعمل مع الأفراد ومن خلالهم وليس بالسيطرة عليهم والتحكم فيهم."
+        },
+
+        // --- 15 APPLIED / SCENARIO QUESTIONS (type: 'app') ---
+        {
+          id: 16,
+          type: "app",
+          topic: "نظرية الرجل العظيم",
+          question: "رفض رئيس مجلس إدارة إلحاق نائبه بدورات تدريبية في القيادة بحجة أن «القائد إما أن يولد قيادياً بالفطرة أو لا يكون قائداً أبداً». أي نظرية يعبّر عنها هذا الموقف؟",
+          options: [
+            "نظرية الرجل العظيم",
+            "النظرية السلوكية",
+            "نظرية المسار والهدف",
+            "النظرية التفاعلية"
+          ],
+          correctText: "نظرية الرجل العظيم",
+          explanation: "هذا الموقف يجسّد مسلمة نظرية الرجل العظيم (القادة يولدون ولا يُصنعون) وتجاهلها الكامل لقيمة التدريب (ص 55–56)."
+        },
+        {
+          id: 17,
+          type: "app",
+          topic: "نظرية الرجل العظيم",
+          question: "نجح قائد عسكري في قيادة فرقته خلال حرب طويلة، لكنه عندما عُيّن لاحقاً مديراً لمؤسسة تعليمية فشل في حل مشكلاتها وتطويرها. أي مأخذ على نظرية الرجل العظيم يثبته هذا السيناريو؟",
+          options: [
+            "تجاهل العوامل البيئية وتصادم النظرية مع حالات عجز القائد في ظروف مختلفة",
+            "اعتماد النظرية على أكثر من 500 مقياس للشخصية",
+            "تركيز النظرية على التحفيز المعنوي فقط",
+            "إفراط النظرية في تفويض الصلاحيات للمرؤوسين"
+          ],
+          correctText: "تجاهل العوامل البيئية وتصادم النظرية مع حالات عجز القائد في ظروف مختلفة",
+          explanation: "يثبت هذا السيناريو ما ورد في ص 55–56 بأن القائد قد ينجح مع جماعة أو بيئة ويعجز في ظروف أو جماعة أخرى."
+        },
+        {
+          id: 18,
+          type: "app",
+          topic: "نظرية السمات القيادية",
+          question: "مدير مستشفى يتقن قراءة التقارير الطبية واستخدام الأنظمة التقنية الحديثة، لكنه يواجه صعوبة في احتواء غضب الموظفين وإشعارهم بالاطمئنان. أي مهارة مكتسبة يفتقر إليها وفق تصنيف صفحة 58؟",
+          options: [
+            "المهارة الإنسانية",
+            "المهارة الفنية",
+            "المهارة السياسية",
+            "المهارة الجسمية"
+          ],
+          correctText: "المهارة الإنسانية",
+          explanation: "المهارة الفنية تخص التعامل مع الأشياء والتخصص، أما التعامل مع الأفراد وفهم مشاعرهم وخلق الاطمئنان فهو جوهر المهارة الإنسانية (ص 58)."
+        },
+        {
+          id: 19,
+          type: "app",
+          topic: "نظرية السمات القيادية",
+          question: "رئيس جامعة يعمل على مواءمة خطط الجامعة وبرامجها الأكاديمية مع الأهداف الوطنية للدولة، ويوازن بين الضغوط المجتمعية ومتطلبات سوق العمل. أي مهارة يمارسها وفق صفحة 59؟",
+          options: [
+            "المهارة السياسية (ضمن المهارة الذهنية)",
+            "المهارة الفنية",
+            "السمات الجسمية",
+            "الأسلوب الإخباري"
+          ],
+          correctText: "المهارة السياسية (ضمن المهارة الذهنية)",
+          explanation: "المهارة السياسية (ص 59) تتمثل في تبصّر الصالح العام والربط بين أهداف المنظمة وأهداف الدولة والمجتمع والتوفيق بين الضغوط المختلفة."
+        },
+        {
+          id: 20,
+          type: "app",
+          topic: "نظرية السمات القيادية",
+          question: "رئيس فريق يواجه انتقاداً لاذعاً في اجتماع عام، فيضبط أعصابه ويحافظ على اتزانه ويرد بهدوء وثقة بالنفس دون انفعال. أي فئة من السمات القيادية تظهر بوضوح في هذا الموقف (ص 59)؟",
+          options: [
+            "السمات الانفعالية",
+            "السمات الجسمية",
+            "السمات المرتبطة بالأداء",
+            "السمات العقلية المعرفية"
+          ],
+          correctText: "السمات الانفعالية",
+          explanation: "الثبات الانفعالي، والنضج الانفعالي، والثقة بالنفس، وضبط النفس هي عناصر السمات الانفعالية في صفحة 59."
+        },
+        {
+          id: 21,
+          type: "app",
+          topic: "نظرية السمات القيادية",
+          question: "لاحظ موظفو قسم تقني أن مديرهم الجديد عبقري جداً في مجاله، لكنه يستخدم مصطلحات شديدة التعقيد ولا يستطيع إيصال أفكاره لهم بوضوح مما خلق فجوة في التواصل. كيف تفسّر نظرية السمات ذلك (ص 59)؟",
+          options: [
+            "زيادة نسبة ذكاء القائد كثيراً عن متوسط ذكاء الأفراد قد تجعل التفاهم بينهما أكثر صعوبة",
+            "القادة يجب أن يكونوا أقل ذكاءً من الأتباع دائماً",
+            "الذكاء لا علاقة له بالقيادة إطلاقاً",
+            "المشكلة تعود إلى نقص المظهر الجسمي للقائد"
+          ],
+          correctText: "زيادة نسبة ذكاء القائد كثيراً عن متوسط ذكاء الأفراد قد تجعل التفاهم بينهما أكثر صعوبة",
+          explanation: "أشار الكتاب صراحة في صفحة 59 إلى أن القائد الذي تزيد نسبة ذكائه كثيراً عن متوسط ذكاء الأفراد قد يصبح التفاهم بينه وبين الأتباع أكثر صعوبة."
+        },
+        {
+          id: 22,
+          type: "app",
+          topic: "النظرية السلوكية",
+          question: "قامت وزارة التربية بتقييم مديري المدارس بناءً على كيفية إدارتهم للاجتماعات وأسلوب تعاملهم اليومي مع المعلمين وعلاقته بمستوى إنجاز المدرسة، بدلاً من اختبار صفاتهم الفطرية. أي نظرية تتبناها الوزارة؟",
+          options: [
+            "النظرية السلوكية",
+            "نظرية الرجل العظيم",
+            "نظرية السمات الجسمية",
+            "نظرية الوراثة الأرستقراطية"
+          ],
+          correctText: "النظرية السلوكية",
+          explanation: "النظرية السلوكية (ص 63) تركز على رصد سلوك القائد أثناء ممارسة عمله وتحليل علاقة أساليبه القيادية بمستوى إنجاز جماعة العمل."
+        },
+        {
+          id: 23,
+          type: "app",
+          topic: "نظرية X و Y",
+          question: "مدير مصنع يضع كاميرات لمراقبة الموظفين في كل خطوة، ويرفض أخذ رأيهم في تطوير الإنتاج، ويعتمد فقط على المكافآت المالية أو التهديد بالخصم والفصل. أي نظرية يطبّق هذا المدير؟",
+          options: [
+            "نظرية (X) – الاتجاه التشاؤمي",
+            "نظرية (Y) – الاتجاه التفاؤلي",
+            "الأسلوب التفويضي عند فيدلر",
+            "النمط المشارك في المسار والهدف"
+          ],
+          correctText: "نظرية (X) – الاتجاه التشاؤمي",
+          explanation: "الرقابة اللصيقة، ورفض إشراك الموظف بالرأي، واستخدام التهديد ونهج الجزرة والعصا والتحفيز المادي هي سمات نظرية (X) (ص 65، 67)."
+        },
+        {
+          id: 24,
+          type: "app",
+          topic: "نظرية X و Y",
+          question: "مديرة تصميم تمنح فريقها حرية اختيار أوقات تنفيذ المهام، وتشجعهم على ابتكار حلول غير تقليدية، وتعتمد على التقدير المعنوي والترقية لتحفيزهم. ما الافتراض الذي تنطلق منه وفق جدول ص 67؟",
+          options: [
+            "أن القدرة الابتكارية موزعة توزيعاً طبيعياً وأن الأفراد يميلون للرقابة الذاتية (نظرية Y)",
+            "أن الأفراد يفتقرون للابتكار ويؤدون الحد الأدنى فقط (نظرية X)",
+            "أن القائد يولد بسمات وراثية خارقة",
+            "أن الموظفين غير جاهزين لتحمل المسؤولية ويحتاجون أسلوباً إخبارياً"
+          ],
+          correctText: "أن القدرة الابتكارية موزعة توزيعاً طبيعياً وأن الأفراد يميلون للرقابة الذاتية (نظرية Y)",
+          explanation: "تؤمن نظرية (Y) بأن القدرة الابتكارية موزعة طبيعياً، وأن الأفراد جديرون بالثقة ويميلون للرقابة الذاتية والتحفيز المعنوي (جدول ص 67)."
+        },
+        {
+          id: 25,
+          type: "app",
+          topic: "النظرية الموقفية وفيدلر",
+          question: "في شركة هندسية، يتمتع المدير بثقة ومحبة فريقه، ومهام المشروع واضحة ومحددة بدقة في خطوات روتينية، وللمدير صلاحية كاملة في منح المكافآت والعقوبات. كيف يصف فيدلر هذا الموقف (ص 73)؟",
+          options: [
+            "موقف ملائم جداً تتوفر فيه متغيرات فيدلر الثلاثة بدرجة عالية",
+            "موقف غامض يفتقر إلى هيكلة الوظيفة",
+            "موقف ضعيف بسبب غياب القوة الرسمية للقائد",
+            "موقف لا يصلح لتطبيق النظرية الموقفية"
+          ],
+          correctText: "موقف ملائم جداً تتوفر فيه متغيرات فيدلر الثلاثة بدرجة عالية",
+          explanation: "توافرت المتغيرات الثلاثة في ص 73–74: علاقة جيدة بالمرؤوسين، هيكلة وظيفة واضحة، وقوة موقع قيادة عالية (إثابة وعقاب)."
+        },
+        {
+          id: 26,
+          type: "app",
+          topic: "النظرية الموقفية وفيدلر",
+          question: "انضم محاسب متدرب جديد إلى قسم المالية وهو لا يملك الخبرة الكافية ولا الجاهزية لتحمل مسؤولية إعداد الميزانية. ما الأسلوب الأنسب لمديره حسب جدول صفحة 74؟",
+          options: [
+            "الأسلوب الإخباري (إعطاء تعليمات واضحة ومباشرة)",
+            "الأسلوب التفويضي (ترك المسؤولية كاملة له)",
+            "الأسلوب المساند (تقليل التوجيه والاكتفاء بالإصغاء)",
+            "تطبيق نظرية الرجل العظيم"
+          ],
+          correctText: "الأسلوب الإخباري (إعطاء تعليمات واضحة ومباشرة)",
+          explanation: "وفق جدول ص 74، الأسلوب الإخباري يعطي تعليمات واضحة ويلائم المرؤوس الذي ما زال غير جاهز لتحمل مسؤولية العمل."
+        },
+        {
+          id: 27,
+          type: "app",
+          topic: "النظرية الموقفية وفيدلر",
+          question: "موظف برمجة تعلّم خطوات تطوير التطبيق بالفعل، لكنه ما زال غير قادر على تحمل مسؤولية تنفيذه وحده ويحتاج لتشجيع وحوار مستمر لبناء ثقته. ما الأسلوب الموقفي المناسب له (جدول ص 74)؟",
+          options: [
+            "الأسلوب التدريبي",
+            "الأسلوب التفويضي",
+            "الأسلوب الإخباري وحده دون تحفيز",
+            "الأسلوب الاستبدادي"
+          ],
+          correctText: "الأسلوب التدريبي",
+          explanation: "في الأسلوب التدريبي (جدول ص 74) يكون المرؤوس قد تعلّم المهام لكنه غير قادر على أدائها وحده، فيستمر التوجيه مع التدريب والتحفيز باتصال ثنائي الاتجاه."
+        },
+        {
+          id: 28,
+          type: "app",
+          topic: "النظرية الموقفية وفيدلر",
+          question: "معلمة تمتلك خبرة عالية وثقة في إنجاز مهامها التدريسية، لكنها تمر بفترة تراجع في الحماس وتحتاج من المديرة أن تصغي لأفكارها وتدعمها وتشركها في القرار. ما الأسلوب الأنسب (جدول ص 74–75)؟",
+          options: [
+            "الأسلوب المساند",
+            "الأسلوب الإخباري",
+            "الأسلوب التفويضي",
+            "نمط القيادة الموجهة في المسار والهدف"
+          ],
+          correctText: "الأسلوب المساند",
+          explanation: "الأسلوب المساند (ص 74–75) يلائم من يمتلك كفاءة عالية وثقة بالإنجاز لكنه يحتاج فتح الاتصال والإصغاء والدعم والمشاركة في اتخاذ القرار."
+        },
+        {
+          id: 29,
+          type: "app",
+          topic: "نظرية المسار والهدف",
+          question: "قبل تعديل جدول المناوبات في مركز صحي، جمع المدير جميع الأطباء والممرضين واستمع لاقتراحاتهم وآرائهم ليعتمد القرار بناءً على التشاور معهم. أي نمط من نظرية المسار والهدف طبّقه المدير (ص 76)؟",
+          options: [
+            "النمط المشارك",
+            "نمط القيادة الموجهة",
+            "النمط المهتم بالإنجاز",
+            "نمط نظرية X"
+          ],
+          correctText: "النمط المشارك",
+          explanation: "في النمط المشارك بنظرية المسار والهدف (ص 76)، يقوم القائد بالتشاور مع مرؤوسيه وأخذ اقتراحاتهم وآرائهم قبل اتخاذ أي قرار."
+        },
+        {
+          id: 30,
+          type: "app",
+          topic: "النظرية التفاعلية",
+          question: "عند تعيين مدير جديد لمؤسسة مجتمعية، حرص على دراسة مشكلات الموظفين، وإطلاعهم بشفافية على الأهداف، وتصميم الأعمال بحيث يبرز كل فرد مواهبه؛ مما أكسبه اقتناع الجماعة وتكامل جهودها. أي نظرية يجسّدها هذا السلوك؟",
+          options: [
+            "النظرية التفاعلية",
+            "نظرية الرجل العظيم",
+            "نظرية (X) التشاؤمية",
+            "نظرية السمات الجسمية"
+          ],
+          correctText: "النظرية التفاعلية",
+          explanation: "تجسّد هذه الممارسة النظرية التفاعلية (ص 62–63 و70): استباقية القائد، إطلاع الموظفين، تصميم الأعمال لإظهار المواهب، وإحداث التكامل باقتناع الجماعة."
+        }
+      ];
+
+      /* ===================================================================
+         4. QUIZ ENGINE (SHUFFLE, LOCK ANSWERS, INSTANT FEEDBACK, RESULTS)
+      =================================================================== */
+      const startQuizBtn = document.getElementById("startQuizBtn");
+      const navQuizBtn = document.getElementById("navQuizBtn");
+      const quizSection = document.getElementById("quizSection");
+      const questionsContainer = document.getElementById("questionsContainer");
+      const progressText = document.getElementById("progressText");
+      const liveScoreText = document.getElementById("liveScoreText");
+      const quizProgressFill = document.getElementById("quizProgressFill");
+      const resultsCard = document.getElementById("resultsCard");
+      const restartTopBtn = document.getElementById("restartTopBtn");
+      const restartBottomBtn = document.getElementById("restartBottomBtn");
+
+      const LETTERS = ["أ", "ب", "ج", "د"];
+
+      let activeQuestions = [];
+      let answeredCount = 0;
+      let correctCount = 0;
+      let memCorrect = 0;
+      let appCorrect = 0;
+      let quizInitialized = false;
+
+      // Fisher-Yates shuffle (returns new array)
+      function shuffleArray(arr) {
+        const copy = arr.slice();
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const temp = copy[i];
+          copy[i] = copy[j];
+          copy[j] = temp;
+        }
+        return copy;
+      }
+
+      function buildQuiz(shouldShuffle) {
+        answeredCount = 0;
+        correctCount = 0;
+        memCorrect = 0;
+        appCorrect = 0;
+        resultsCard.classList.remove("show");
+
+        const base = shouldShuffle ? shuffleArray(QUESTION_BANK) : QUESTION_BANK.slice();
+        activeQuestions = base.map(function (q) {
+          return {
+            id: q.id,
+            type: q.type,
+            topic: q.topic,
+            question: q.question,
+            options: shuffleArray(q.options),
+            correctText: q.correctText,
+            explanation: q.explanation,
+            answered: false
+          };
+        });
+
+        updateProgressUI();
+        renderQuestions();
+      }
+
+      function updateProgressUI() {
+        const total = activeQuestions.length;
+        progressText.textContent = "تمت الإجابة على " + answeredCount + " من " + total + " سؤالاً";
+        liveScoreText.textContent = "النتيجة الحالية: " + correctCount + " / " + total;
+        const pct = total > 0 ? (answeredCount / total) * 100 : 0;
+        quizProgressFill.style.width = pct + "%";
+      }
+
+      function renderQuestions() {
+        questionsContainer.innerHTML = "";
+
+        activeQuestions.forEach(function (q, index) {
+          const card = document.createElement("div");
+          card.className = "question-card";
+
+          const header = document.createElement("div");
+          header.className = "q-header";
+
+          const numBadge = document.createElement("span");
+          numBadge.className = "q-num-badge";
+          numBadge.textContent = "السؤال " + (index + 1) + " من 30 • " + q.topic;
+
+          const typeBadge = document.createElement("span");
+          typeBadge.className = "q-type-badge " + q.type;
+          typeBadge.textContent = q.type === "mem" ? "سؤال حفظي" : "سؤال تطبيقي (سيناريو)";
+
+          header.appendChild(numBadge);
+          header.appendChild(typeBadge);
+
+          const qText = document.createElement("div");
+          qText.className = "q-text";
+          qText.textContent = q.question;
+
+          const optionsList = document.createElement("div");
+          optionsList.className = "options-list";
+
+          const feedback = document.createElement("div");
+          feedback.className = "q-feedback";
+
+          q.options.forEach(function (optText, optIdx) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "opt-btn";
+
+            const letterSpan = document.createElement("span");
+            letterSpan.className = "opt-letter";
+            letterSpan.textContent = LETTERS[optIdx];
+
+            const textSpan = document.createElement("span");
+            textSpan.textContent = optText;
+
+            btn.appendChild(letterSpan);
+            btn.appendChild(textSpan);
+
+            btn.addEventListener("click", function () {
+              if (q.answered) return;
+              q.answered = true;
+              answeredCount++;
+
+              const isCorrect = optText === q.correctText;
+              const allBtns = optionsList.querySelectorAll(".opt-btn");
+
+              allBtns.forEach(function (b, bIdx) {
+                b.disabled = true;
+                if (q.options[bIdx] === q.correctText) {
+                  b.classList.add("is-correct");
+                }
+              });
+
+              if (isCorrect) {
+                correctCount++;
+                if (q.type === "mem") memCorrect++;
+                else appCorrect++;
+                card.classList.add("answered-correct");
+                feedback.className = "q-feedback show ok";
+                feedback.textContent = "✅ إجابة صحيحة! " + q.explanation;
+              } else {
+                btn.classList.add("is-wrong");
+                card.classList.add("answered-wrong");
+                feedback.className = "q-feedback show err";
+                feedback.textContent = "❌ إجابة خاطئة. الإجابة الصحيحة هي: «" + q.correctText + "». — التفسير: " + q.explanation;
+              }
+
+              updateProgressUI();
+
+              if (answeredCount === activeQuestions.length) {
+                showFinalResults();
+              }
+            });
+
+            optionsList.appendChild(btn);
+          });
+
+          card.appendChild(header);
+          card.appendChild(qText);
+          card.appendChild(optionsList);
+          card.appendChild(feedback);
+          questionsContainer.appendChild(card);
+        });
+      }
+
+      function showFinalResults() {
+        const total = activeQuestions.length;
+        const wrongCount = total - correctCount;
+        const percent = ((correctCount / total) * 100).toFixed(1);
+
+        let level = "";
+        let msg = "";
+        if (correctCount >= 27) {
+          level = "🏆 ممتاز (امتياز أكاديمي)";
+          msg = "أداء رائع! أنت متقن تماماً لمفاهيم ومسلمات وجداول الوحدة الثانية وقادر على تطبيقها بثقة في الامتحان الجامعي.";
+        } else if (correctCount >= 23) {
+          level = "🌟 جيد جداً";
+          msg = "مستوى قوي ومبشّر! راجع الأسئلة القليلة التي أخطأت بها لتصل إلى الدرجة الكاملة.";
+        } else if (correctCount >= 18) {
+          level = "👍 جيد";
+          msg = "فهمك الأساسي جيد، ويُفضّل مراجعة مربعات «للحفظ» و«افهم الفرق» وجدولي ص 67 وص 74 ثم إعادة الاختبار.";
+        } else if (correctCount >= 15) {
+          level = "📘 مقبول";
+          msg = "تحتاج إلى تركيز أكبر على المسلمات والتمييز بين النظريات المتشابهة؛ أعد قراءة الخلاصات وجرب الاختبار مجدداً.";
+        } else {
+          level = "🔄 يحتاج إلى مراجعة شاملة";
+          msg = "لا تقلق! ارجع إلى الفهرس التفاعلي واقرأ كل نظرية مع مثالها التطبيقي، ثم أعد الاختبار وستلاحظ فرقاً كبيراً.";
+        }
+
+        document.getElementById("finalScoreNum").textContent = correctCount + " / " + total;
+        document.getElementById("finalPercent").textContent = percent + "%";
+        document.getElementById("studentLevel").textContent = level;
+        document.getElementById("levelMessage").textContent = msg;
+        document.getElementById("statCorrect").textContent = correctCount;
+        document.getElementById("statWrong").textContent = wrongCount;
+        document.getElementById("statMem").textContent = memCorrect + " / 15";
+        document.getElementById("statApp").textContent = appCorrect + " / 15";
+
+        resultsCard.classList.add("show");
+        resultsCard.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      function openQuiz() {
+        quizSection.classList.add("active");
+        if (!quizInitialized) {
+          quizInitialized = true;
+          buildQuiz(false);
+        }
+        quizSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function restartQuiz() {
+        quizSection.classList.add("active");
+        quizInitialized = true;
+        buildQuiz(true);
+        quizSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      startQuizBtn.addEventListener("click", openQuiz);
+      navQuizBtn.addEventListener("click", openQuiz);
+      const mobileTopQuizBtn = document.getElementById("mobileTopQuizBtn");
+      const bottomQuizBtn = document.getElementById("bottomQuizBtn");
+      if (mobileTopQuizBtn) mobileTopQuizBtn.addEventListener("click", openQuiz);
+      if (bottomQuizBtn) bottomQuizBtn.addEventListener("click", openQuiz);
+      restartTopBtn.addEventListener("click", restartQuiz);
+      restartBottomBtn.addEventListener("click", restartQuiz);
+    })();
+  </script>
+</body>
+</html>
